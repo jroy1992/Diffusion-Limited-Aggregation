@@ -81,8 +81,9 @@ Introduction
 \begin_layout Standard
 Randomness plays a important role in Computer Graphics especially when it
  comes to creating natural artifacts.
- Adhering to the fact that nature is governed by random and bizzard order,
- for creating anything natural means to be able to resemble that order.
+ Adhering to the fact that nature is governed by random and bizarre order,
+ for creating anything natural in graphics means to be able to resemble
+ that order.
  This could at its closest be achieved using fractal patterns.
  Fractal patterns offer computer artists a way of producing controlled randomnes
 s which can be used for a variety of ...
@@ -91,19 +92,21 @@ s which can be used for a variety of ...
 
 \begin_layout Standard
 One of the popular methods of creating fractal patters is L-Systems.
- Their ordered yet apparent randomness has been significant for modelling
+ Their ordered yet apparent randomness has been significant for modeling
  natural looking shapes like trees, plants, fracture and crack propagation
  to name a few.
 \end_layout
 
 \begin_layout Standard
 Though L- Systems are a powerful way of fractal generation, it encounters
- limitations when it comes to growth in an environment that liable to change.
- Under such scenario the best approach is Diffusion Limited Aggregation,
+ limitations when it comes to growth in an environment that is liable to
+ change.
+ Under such conditions the best approach is Diffusion Limited Aggregation,
  DLA.
- DLA is a model that is capable of producing fractals.
- It is in many ways similar to L - Systems with the advantage that it has
- the ability to adapt to its surroundings in addition to yielding stochastic
+ DLA is a model that is used for various scientific ...capable of producing
+ fractals.
+ It is in many ways similar to L - Systems topped with the advantage of
+ being able to adapt to its surroundings in addition to yielding stochastic
  fractal shapes.
  
 \end_layout
@@ -111,8 +114,8 @@ Though L- Systems are a powerful way of fractal generation, it encounters
 \begin_layout Standard
 DLA has been widely used to perform simulation on flat 2D planes as well
  as on 3D surfaces.
- The aim of this project is to produce a tool capable of generating fractal
- patterns inside 3D models.
+ The project aims at producing a tool capable of generating fractal patterns
+ inside 3D models.
  The tool presented here can provide a simple (although primitive) tool
  for artists to implement DLA in Houdini.
  The system designed is fully procedural and is adaptable to any geometrical
@@ -599,30 +602,67 @@ Collision and Growing Aggregate
 
 \begin_layout Standard
 Now that random walkers are generated, it is to be checked if during their
- random movement they collided with the initial aggregate.
+ random movement they collided with the initial aggregate or not.
  The collision can only happen when the walkers are aware of the initial
  aggregate.
- Since the initial seed points are at SOP Level and the walkers are at POP
- Level, the walkers cannot interact with the seeds until they are brought
- down to the POP Level.
- A sopsolver used to bring the SOP Level information into POP Level.
- Using sopsolver the walkers are introduced to the initial aggregate points
- at the first frame and those which are within the distance threshold of
- the aggregate are stopped, grouped separately and added to the initial
- aggregate to form the new aggregate.
+ Since the initial seed points are at 
+\shape italic
+SOP Level
+\shape default
+ and the walkers are at POP Level, the walkers cannot interact with the
+ seeds until they are brought down to the 
+\shape italic
+POP Level
+\shape default
+.
+ A 
+\shape italic
+sopsolver
+\shape default
+ used to bring the 
+\shape italic
+SOP Level
+\shape default
+ information into 
+\shape italic
+POP Level
+\shape default
+.
+ Using 
+\shape italic
+sopsolver
+\shape default
+ the walkers are introduced to the initial aggregate points at the first
+ frame and those which are within the distance threshold of the aggregate
+ are stopped, grouped separately and added to the initial aggregate to form
+ the new aggregate.
  
 \end_layout
 
 \begin_layout Standard
 The entire procedure is handled using vex code inside the sopsolver.
- A pcopen() function is used to determine the closest point, “nearpt” for
- each walker.
- Pcopen() opens a point cloud which is used to fetch points of the geometry
- within a certain distance.
- When the points are fetched, the pciterate operation is used to iterate
- through all the retrieved points.
+ 
+\shape italic
+Pcopen()
+\shape default
+ function is used to determine the closest point, “nearpt” for each walker.
+ 
+\shape italic
+Pcopen()
+\shape default
+ opens a point cloud which is used to fetch points of the geometry within
+ a certain distance.
+ When the points are fetched, the 
+\shape italic
+pciterate()
+\shape default
+ operation is used to iterate through all the retrieved points.
  Since we are working with point numbers, the point number of each point
- is imported using pcimport().
+ is imported using 
+\shape italic
+pcimport()
+\shape default
+.
 \end_layout
 
 \begin_layout Standard
@@ -698,12 +738,22 @@ In a similar manner just as the walkers are made aware of the growing aggregate,
  and the stopped points are written to the file.
  Meanwhile another File sop is used to read in the previous frame of aggregate
  particles.
- These aggregate particles are a set of points in space which the solver
- sop uses to check the distance between the emitters and their respective
- nearest aggregate points.
- The nearest point is calculated using the nearpoint() function.
- Once the nearest point is found, the vex point() function is used to get
- the position of the nearest point.
+ These are projected as a set of points in space which the 
+\shape italic
+solver sop
+\shape default
+ uses to check the distance between the emitters and their respective nearest
+ aggregate points.
+ The nearest point is calculated using the 
+\shape italic
+nearpoint()
+\shape default
+ function.
+ Once the nearest point is found, the 
+\shape italic
+point()
+\shape default
+ function is used to get the position of the nearest point.
  We already know the position of the emitter and now with the position of
  the nearest point we can calculate the distance between them and if it
  is within the threshold, the emitter could be deleted so that emission
@@ -967,36 +1017,40 @@ Controlling Particle Emission
 \end_layout
 
 \begin_layout Standard
-The emitter are scattered inside the geometry and they give birth to random
- walkers.
+The emitters which are birthing random walkers can keep releasing particles
+ throughout the course of simulation.
  When the growing aggregate reaches a certain distance from the emitter(s),
  it should stop the particle emission thus avoiding the repeated clustering
  of particles at the same location.
+ After testing various approaches for controlling emission, two methods
+ were arrived at.
 \end_layout
 
 \begin_layout Standard
-There were two approaches to solve this problem, firstly to nullify the
- birthing particles and secondly to remove the emitter itself.
+First method is to nullify the birthing particles and second option is to
+ remove the emitter itself.
 \end_layout
 
 \begin_layout Standard
 In the first method, if the impulse emission is set to zero based on some
- condition, it will affect all the emitters and they all will stop emission
- simultaneously.
- This is not a favorable case since it might be possible that few of the
- emitters are still not in the contact region of the aggregate.
+ condition, say frame number for instance, it will affect all the emitters
+ and they all will stop emission simultaneously.
+ This is not favorable since it might be possible that few of the emitters
+ are still not in the contact region of the aggregate.
  This leaves us with the second option to remove the emitters as they reach
  the vicinity of the aggregate.
- While working on the method I realized that though emitted particles and
- emission rate could be controlled from inside the pop network, the emitters
- themselves cannot be accessed from within pop network.
+ While working on the method it was observed that though emitted particles
+ and emission rate could be controlled from inside the POP network, the
+ emitters themselves cannot be accessed from within POP network.
  This makes sense because the initially scattered particles which are acting
- as emitter are at the SOP Level and cannot be accessed inside pop network.
+ as emitter are at the SOP Level and cannot be accessed inside POP network
+ directly.
 \end_layout
 
 \begin_layout Standard
-A feedback system had to be created to make the emitters aware of the growing
- aggregate and this was done using a sover sop.
+A feedback system was created to make the emitters aware of the growing
+ aggregate and this was done be bringing SOP Level information into POP
+ Level using a sover sop.
  
 \end_layout
 
