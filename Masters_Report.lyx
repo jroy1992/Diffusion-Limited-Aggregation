@@ -1,0 +1,1102 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Abstract
+The purpose of this work is to ...
+ the phenomenon of Diffusion Limited Aggregation inside 3D models.
+ 
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Randomness plays a important role in Computer Graphics especially when it
+ comes to creating natural artifacts.
+ Adhering to the fact that nature is governed by random and bizzard order,
+ for creating anything natural means to be able to resemble that order.
+ This could at its closest be achieved using fractal patterns.
+ Fractal patterns offer computer artists a way of producing controlled randomnes
+s which can be used for a variety of ...
+ effects.
+\end_layout
+
+\begin_layout Standard
+One of the popular methods of creating fractal patters is L-Systems.
+ Their ordered yet apparent randomness has been significant for modelling
+ natural looking shapes like trees, plants, fracture and crack propagation
+ to name a few.
+\end_layout
+
+\begin_layout Standard
+Though L- Systems are a powerful way of fractal generation, it encounters
+ limitations when it comes to growth in an environment that liable to change.
+ Under such scenario the best approach is Diffusion Limited Aggregation,
+ DLA.
+ DLA is a model that is capable of producing fractals.
+ It is in many ways similar to L - Systems with the advantage that it has
+ the ability to adapt to its surroundings in addition to yielding stochastic
+ fractal shapes.
+ 
+\end_layout
+
+\begin_layout Standard
+DLA has been widely used to perform simulation on flat 2D planes as well
+ as on 3D surfaces.
+ The aim of this project is to produce a tool capable of generating fractal
+ patterns inside 3D models.
+ The tool presented here can provide a simple (although primitive) tool
+ for artists to implement DLA in Houdini.
+ The system designed is fully procedural and is adaptable to any geometrical
+ shape.
+ Applications....
+\end_layout
+
+\begin_layout Section
+Previous Work
+\end_layout
+
+\begin_layout Standard
+There are two primary growth algorithms in computer graphics especially
+ when it comes to creating fractal like growth patterns: L - Systems and
+ Diffusion Limited Aggregation.
+\end_layout
+
+\begin_layout Subsection
+L-Systems
+\end_layout
+
+\begin_layout Standard
+L – Systems or Lindenmayer Systems use a mathematical language in which
+ an initial string of characters is matched against rules which are evaluated
+ repeatedly and the results are used to generate geometry.
+ The result of each evaluation becomes the basis for the next iteration
+ of geometry, giving illustration of growth.
+\end_layout
+
+\begin_layout Standard
+An L System involves three main components:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Alphabet:
+\series default
+ Valid characters that can be included 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Axiom:
+\series default
+ A sentence that describes the initial state of the system 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Rules:
+\series default
+ Rules are applied to the axiom and then applied recursively, generation
+ new sentences over and over again
+\end_layout
+
+\begin_layout Standard
+L-Systems get its geometrical representation from Turtle Graphics.
+ This places each alphabet with a specific movement which when used as a
+ sentence generates a command describing the sequence of actions to be undertake
+n by the turtle: moving forwards a given distance, turning through a given
+ distance.
+ 
+\end_layout
+
+\begin_layout Standard
+L-System has diverse applications because of its ability to create natural
+ fractal like forms.
+ Though based on simple rules to begin with, the recursive nature of an
+ L-System, leading to self similarity makes it easier to define complex
+ plants models, algae forms, patterns like Koch curve, Cantor set, Sierpinski
+ triangle and many more.
+ At each iterative step, the working set is replaced with the grammar in
+ parallel giving an adaptive way to create a variety of plants with subtle
+ variations enabling them to have a realistic look.
+ Apart from graphics, L-systems have useful mathematical applications.
+ Taking an example, using l-systems it can be shown that 2D or 3D space
+ could be filled with a 1D object; called the space filling curves and Hilbert
+ Curve respectively.
+\end_layout
+
+\begin_layout Subsection
+Diffusion Limited Aggregation
+\end_layout
+
+\begin_layout Standard
+This method was introduced by Written and Sander (), who first experimented
+ with DLA as a model for irreversible colloidal aggregation.
+ The process started at the grid centre where a particle was placed.
+ Eventually a diffusing particle was introduced in the scene which was allowed
+ to wander freely until it was within a fixed distance of the centre where
+ it attaches to the central particle.
+ After the first particle is attached, another particle is released and
+ so on, all of which undergo the same process.
+ Particles forming the structure undergo a Brownian motion (random walk)
+ before attaching themselves (Aggregating) to the structure.
+ The particles are considered to be in low concentration so that they don’t
+ come into contact with each other and the structure grows one particle
+ at a time rather that by chunks of particles.
+\end_layout
+
+\begin_layout Standard
+The initial aggregate need not necessarily be a particle; it could be an
+ edge or a surface as well.
+ The course of action for all of them will be same.
+ With the progress of time as the aggregate particles multiply and grow,
+ they produce complex structures with high levels of detail.
+\end_layout
+
+\begin_layout Standard
+Many of the patterns we see in nature are the result of a host of processes
+ involving an interaction between the transport and thermodynamic properties
+ of matter and radiation involved.
+ Usually transport is dominated by convection but in cases where instabilities
+ in the pattern generated is high, diffusion takes over like formation of
+ river deltas, frost on glass, mineral deposits and many other natural phenomeno
+n.
+ Since the process takes place at a per particle basis with high unpredictabilit
+y of the attachment point owing to the Brownian motion, the resultant patter
+ is varied and random.
+ Yet the association of one particle with other to form of dendrite branches
+ spread out around the initial seed portrays ….order.
+ This order in chaos found DLA its place in computer graphics.
+ Cashmore() mentions applications of DLA in other arenas of science like
+ exploration of oil and crystal formation.
+ It is also used as a catalyst for certain chemical reactions, as a way
+ to vary the rate of reaction without altering the end product.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Catalysts need a large surface area to be most effective and often are arranges
+ with a largely branched structure with many holes.
+ This shape is akin to structures which are simulate by DLA
+\begin_inset Quotes erd
+\end_inset
+
+ (Cashmore, 2009)
+\end_layout
+
+\begin_layout Section
+Technical Background
+\end_layout
+
+\begin_layout Standard
+Though both DLA and L systems are based on the concept of incremental growth,
+ what differentiates DLA from L-systems is the versatility and quality of
+ the results DLA offers with the potential of generating dendrite forms
+ as seen in a number of natural objects including lichens, crystals, neurons
+ and lightening.
+ 
+\end_layout
+
+\begin_layout Standard
+There are few examples of DLA being implemented on or inside 3D surfaces.
+ One very significant for this project is by Cashmore ( ).
+ He develops the tool for generation of DLA on the 3D surface using it to
+ create ivy like growth structure as well as applying texture map to create
+ lava effect, rust propagation and displacement effect.
+ He uses the concept of SDF volume in Houdini to create a thin layer over
+ the geometry to facilitate the movement of particles and to prevent them
+ penetrating into or escaping from the geometry.
+ The user is given the control to choose the initial area of growth via
+ a paint tool.
+ The aggregate points generated are then connected using geometry and used
+ to create vines or veins, shader and displacement effect.
+ 
+\end_layout
+
+\begin_layout Standard
+Brouke () tests the idea of constraining DLA growth by a surface or solid
+ described by an STL file format which describes the surface as a collection
+ of triangles.
+ During simulation if the growing structure intersects a triangle, either
+ the new particle is not added to the branch which then continues random
+ walk or the intersection with the triangle is calculated and a branch is
+ added that just touches the constraint surface.
+ A sphere is used as the particle emitter.
+ Particles are introduces into the simulation randomly on the surface of
+ a sphere to get an even distribution at all locations especially the places
+ with small gaps where it might be unlikely for the particles to penetrate.
+ He also experiments with the multiple independent seeds for the not so
+ easy to reach areas in the geometry.
+ 
+\end_layout
+
+\begin_layout Standard
+One of the most prominent works in DLA is by Lomas() who created the aggregate
+ structure by simulating the paths of millions of particles flowing in a
+ field of force thus creating structures of intricate design and immense
+ complexity.
+ Apart from just the Brownian motion, the particles are influenced by the
+ flow field.
+ “Forms are created by a process of indirect design: the shape of forms
+ is governed by controlling initial conditions and rules for deposition
+ rather than by designing the final form directly.” (aggregation: complexity
+ out of simplicity) 
+\end_layout
+
+\begin_layout Standard
+Stock() experiments with DLA in 3D without any external constraint but introduce
+s two new factors of influence; stickiness and bulk velocity.
+ Stickiness determines the probability of a particle to attach to the aggregate
+ structure.
+ When a particle approaches another particle within a certain distance,
+ it is given a chance to stick.
+ If it fails to stick, it is moved a tiny distance away from that particle
+ so that the diffusion distance for the next time step remains positive.
+ It is observed that, lower the stickiness factor, denser the aggregate.
+ For the bulk velocity, in Stock's own words, 
+\begin_inset Quotes eld
+\end_inset
+
+The first task for each random-walk-accelerated step is to determine the
+ nearest element in the frozen structure.
+ The distance to that particle determines the radius of the sphere inside
+ which the active particle must stay.
+ With no bulk velocity, the set of candidate positions is the surface of
+ that sphere.
+ With a non-zero bulk velocity, the set of candidate positions is a smaller
+ sphere tangent to the larger sphere.
+ The radius of the new sphere is calculated by solving for the mean diffusion
+ time that would be capable of convecting and diffusing the particle a distance
+ equal to the distance to the nearest particle.
+ Thus, one random-walk-accelerated step is composed of a bulk motion step,
+ and a spherical diffusion step, instead of just a spherical diffusion step.
+\begin_inset Quotes erd
+\end_inset
+
+ It is observed that, lower the bulk velocity lower is the density.
+\end_layout
+
+\begin_layout Section
+Implementation
+\end_layout
+
+\begin_layout Standard
+This section talks about the approach taken for the implementation, the
+ problems encountered on way, the attempt at different solutions and finally
+ the efficiency of the program in relation to .....
+\end_layout
+
+\begin_layout Subsection
+Methodology
+\end_layout
+
+\begin_layout Standard
+The aim of the project is to create fractal like growth inside 3D geometry
+ using the principle of Diffusion Limited Aggregation.
+ The implementation has been done in two parts: Text and 3D Geometry and
+ Intersection.
+ The first part involves working with a single 3D geometry and Text and
+ Intersection.
+ The first part involves working with a single geometry, filling the geometry
+ with the growth.
+ The second part, however deals with how the growth will perform when two
+ or more objects are in contact or are penetrating into each other.
+\end_layout
+
+\begin_layout Standard
+The process of Diffusion Limited Aggregation consists of the following main
+ parts: 
+\end_layout
+
+\begin_layout Itemize
+The initial seed(s) called the “aggregate” which will start the growth process
+ 
+\end_layout
+
+\begin_layout Itemize
+A particle called “walker” at a location inside the geometry which will
+ undergo a random walk to reach the aggregate 
+\end_layout
+
+\begin_layout Itemize
+Collision happens between the walker and aggregate following which the walker
+ stops and becomes part of the aggregate 
+\end_layout
+
+\begin_layout Itemize
+Generating new walker which will go through the same process as the previous
+ one 
+\end_layout
+
+\begin_layout Itemize
+Repeating the process until the aggregate has grown to the desired size
+\end_layout
+
+\begin_layout Subsubsection
+Defining Initial Aggregate
+\end_layout
+
+\begin_layout Standard
+The first stage is to decide the geometry in which aggregation is to take
+ place.
+ The tool already provides a few default geometries but user has the option
+ to import and apply aggregation to any geometry.
+ Only thing to take care when using an external geometry is to ensure that
+ the 
+\begin_inset Quotes eld
+\end_inset
+
+normals
+\begin_inset Quotes erd
+\end_inset
+
+ are properly oriented because if not, it will affect particle emission.
+\end_layout
+
+\begin_layout Standard
+If it is Text, the user can type in a word or sentence, set the alignment,
+ font, extrusion limit and the space between the characters.
+ The spacing between the characters is best to be kept at minimum as it
+ might affect the growth propagation if the distance between characters
+ is greater than a certain limit.
+\end_layout
+
+\begin_layout Paragraph
+Text and 3D Geometry
+\end_layout
+
+\begin_layout Standard
+After choosing the geometry for the aggregate formation, the initial seed
+ has to be decided.
+ This could be any of the static point(s) of the geometry say for example,
+ point “0”.
+ Now for any chosen geometry the point “0” will be the initial seed but
+ there could be cases when the user’s desired initial seed is not point
+ 0 but some other point or a group of points or points at various different
+ locations of the geometry.
+ Considering all these scenarios, the user is given the flexibility to choose
+ his/ her own initial seed region.
+ Through the 
+\shape italic
+Paint
+\shape default
+ option in Houdini, the user can paint over any region of the geometry and
+ the points scattered over that region will act as the initial aggregate.
+\end_layout
+
+\begin_layout Paragraph
+Intersection
+\end_layout
+
+\begin_layout Standard
+For intersection, the user is given the choice to use his/her own intersecting
+ geometries in addition to the main geometry.
+ Unlike the 3D Geometry and Text, the initial aggregate for intersection
+ is defined by the area of intersection of two or more geometries.
+ So the first step is to retrieve the area of intersection.
+ For retrieving this area, firstly all the geometries are converted to volume
+ using 
+\shape italic
+IsoOffset
+\shape default
+.
+ The 
+\shape italic
+Uniform Sampling Divs
+\shape default
+ is set to 100 to define the fog volume within geometry boundary.
+ The converted volume is an opaque white fog.
+ To view the intersecting part of fog volume, 
+\shape italic
+Volume Visualization
+\shape default
+ is used which adds detail attributes to the volume to allow for visualization
+ of volumes that require multiple volumes to be joined together.
+ Since we would now be dealing with just the intersecting part, this can
+ be converted back to polygons using 
+\shape italic
+Volume convert
+\shape default
+.
+ The particles in the main geometry which are near the particles in the
+ intersection area will act as the initial aggregate.
+\end_layout
+
+\begin_layout Standard
+The Paint SOP provides a very visual way with a better control to choose
+ the growth region.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Scattering Internal Particles
+\end_layout
+
+\begin_layout Standard
+After initial aggregate area is defined on the main geometry, the procedure
+ for growth has to be set up.
+ This is done by scattering the particles within the geometry, since the
+ growth will take place inside.
+ For this purpose, the geometry is converted into a volume using 
+\shape italic
+IsoOffset
+\shape default
+ with the 
+\shape italic
+Uniform Sampling Divs
+\shape default
+ set to 100.
+ The points are then scattered inside the fog volume using 
+\shape italic
+Scatter
+\shape default
+.
+ Once the points are scatted, they need to know the color information from
+ the surface.
+ For Text and 3D Geometry, this is accomplished using Attribute Transfer
+ which will transfer the color from the surface to points in the painted
+ region thus defining the region from where the growth will start.
+ In case of Intersection, the color is transferred from the points in the
+ intersection area.
+ The scattered points are then grouped separately based on color as aggregate
+ and walkers.
+ The user is given the control to input the number of scattered points.
+\end_layout
+
+\begin_layout Subsubsection
+Generating Random Walkers
+\end_layout
+
+\begin_layout Standard
+Random walkers are particles which will via random movement collide with
+ the aggregate points for the process of growth to begin.
+ The generation of random walkers is done inside the pop network which handles
+ particle simulation.
+ The POP network uses the particles scattered inside the volume as emitters
+ for the random walkers.
+ They are given a starting velocity as follows: 
+\end_layout
+
+\begin_layout Itemize
+fit01 (rand (@ptnum * $FF), 0.1, 1) 
+\end_layout
+
+\begin_layout Standard
+Analyzing the expression, the rand function creates a random number between
+ 0 and 1.
+ It takes the combination of @ptnum which is the point number and the floating
+ frame number $FF to ensure varied speed for every particle per frame basis.
+ It ensures that each particle has a random number between 0 and 1.
+ The role of fit01 is to take the range from 0 to 1 and fit it to be between
+ a new range from 0.1 to 1.
+ To further randomize the movement, a unique number is multiplied to the
+ random number of each axis.
+ If every particle has a different speed along each x, y and z axis the
+ motion should be completely random.
+ In this manner, no particular direction will be given preference over the
+ others and thus following the process of creating random walks as described
+ by the traditional DLA.
+\end_layout
+
+\begin_layout Itemize
+fit01 (rand (@ptnum * $FF * unique_number), 0.1, 1)
+\end_layout
+
+\begin_layout Standard
+A random walker can be generated at any location inside the geometry but
+ there is a possibility that they could fly out of the geometry during the
+ random walk and in the process moving away from the aggregate.
+ If this happens, either collision detection can be set up to kill the particles
+ as soon as they hit the geometry boundary or a POP Kill could be used with
+ the input geometry as the bounding object.
+ Bounding object ensures elimination of all the particles that step out
+ of the bounded area.
+ Both the options will work equally well removing the particles flowing
+ out of the geometry and giving a random walk contained within the bounds
+ of the geometry.
+ Another option tested was to redirect the particles moving out back into
+ the object.
+ The option was ruled out because, since the emitters are continuously emitting,
+ redirecting the particles would mean packing all the emitted particles
+ since the starting frame inside the geometry which will create a huge undesired
+ cluster of particles.
+\end_layout
+
+\begin_layout Subsubsection
+Collision and Growing Aggregate
+\end_layout
+
+\begin_layout Standard
+Now that random walkers are generated, it is to be checked if during their
+ random movement they collided with the initial aggregate.
+ The collision can only happen when the walkers are aware of the initial
+ aggregate.
+ Since the initial seed points are at SOP Level and the walkers are at POP
+ Level, the walkers cannot interact with the seeds until they are brought
+ down to the POP Level.
+ A sopsolver used to bring the SOP Level information into POP Level.
+ Using sopsolver the walkers are introduced to the initial aggregate points
+ at the first frame and those which are within the distance threshold of
+ the aggregate are stopped, grouped separately and added to the initial
+ aggregate to form the new aggregate.
+ 
+\end_layout
+
+\begin_layout Standard
+The entire procedure is handled using vex code inside the sopsolver.
+ A pcopen() function is used to determine the closest point, “nearpt” for
+ each walker.
+ Pcopen() opens a point cloud which is used to fetch points of the geometry
+ within a certain distance.
+ When the points are fetched, the pciterate operation is used to iterate
+ through all the retrieved points.
+ Since we are working with point numbers, the point number of each point
+ is imported using pcimport().
+\end_layout
+
+\begin_layout Standard
+Once the “nearpt” is found it is checked if it is in the aggregate group.
+ If yes, the walker is asked to stop, change color and is grouped under
+ a separate group.
+ After the first frame, the walkers are made to interact with the new aggregate,
+ i.e.
+ the initial aggregate point and the newly stopped points and the same process
+ of stopping and adding to the new group continues till all the walkers
+ become part of the aggregate.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+sfkdjkh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+gfdfgd
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In a similar manner just as the walkers are made aware of the growing aggregate,
+ the scattered points which are emitting the walkers need to be alerted
+ of the new aggregate so that when they are within the said threshold, the
+ emission could stop.
+ A feedback system was set up for the same using File sop in Houdini.
+ At the end of each frame, the points which haven’t collided are deleted
+ and the stopped points are written to the file.
+ Meanwhile another File sop is used to read in the previous frame of aggregate
+ particles.
+ These aggregate particles are a set of points in space which the solver
+ sop uses to check the distance between the emitters and their respective
+ nearest aggregate points.
+ The nearest point is calculated using the nearpoint() function.
+ Once the nearest point is found, the vex point() function is used to get
+ the position of the nearest point.
+ We already know the position of the emitter and now with the position of
+ the nearest point we can calculate the distance between them and if it
+ is within the threshold, the emitter could be deleted so that emission
+ from that emitter could stop.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+fhgfhg
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fdsfsdf
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+****algo***
+\end_layout
+
+\begin_layout Subsubsection
+Joining Aggregate Points
+\end_layout
+
+\begin_layout Standard
+At the end of the simulation we will have a .bgeo file with thousands of
+ points.
+ These points could be used as it is to create a particle effect or they
+ could be used for some propagation like effect if joined together using
+ lines.
+ The joining can be easily done since we know which point was stopped by
+ which.
+\end_layout
+
+\begin_layout Standard
+As mentioned earlier, inside the POP network the “nearpt” of each walker
+ is found and if that point is part of the aggregate or stopped group the
+ walker is stopped.
+ At the time when the walker is stopped, a connection is established between
+ the walker and its “nearpt”.
+ As the point number of both the points is known at this instance, they
+ can be joined using a polyline by adding vertex to both using addvertex()
+ function and setting connection using addprim().
+ In this manner, as each walker is stopped it connects to the point which
+ stopped it using a polyline giving a propagation like growth effect.
+\end_layout
+
+\begin_layout Subsubsection
+Adding Geometry
+\end_layout
+
+\begin_layout Standard
+Now that we have both the points and lines, these can be used for carrying
+ geometry which could then be used for the application of different shaders
+ or textures or simply to add aesthetic appeal.
+\end_layout
+
+\begin_layout Paragraph
+Text and 3D Geometry
+\end_layout
+
+\begin_layout Subparagraph
+Wire Fill
+\end_layout
+
+\begin_layout Standard
+The lines are converted to geometry using the polywire sop which constructs
+ polygonal tubes around polylines with smooth bends and intersections and
+ creating them into renderable geometry.
+ The tool provides the mechanism to use polywire in two ways: one is simply
+ replacing the lines with polywire giving user the control to change the
+ width and second is to have polywire with varying width.
+ For varying width, the concept of having thicker branches at the geometry
+ center and finer branches near the boundary is applied.
+ The distance of each point from the geometry boundary is measured using
+ xyzdist() function.
+ This distance is then used to drive the polywire width giving a linear
+ decrease as the points reach the geometry boundary.
+\end_layout
+
+\begin_layout Standard
+Since this effect could also be used to grow hedge or foliage, additional
+ geometries for flowers and leaves would be required.
+ For this purpose few points are selected as seeds for growth.
+ These seeds are selected based on two conditions: their nearness to the
+ geometry boundary and the number of neighbors.
+ A small distance from the geometry boundary is considered so as to keep
+ the flowers or leaves well in sight and away from the central clustering.
+ All the points within this distance will be considered as potential seeds
+ but to actually be a seed they have to fulfill the second criteria as well
+ i.e.
+ the neighbor count.
+ Growth could actually happen at any point in the foliage but here we account
+ for growth only at the end points and number of neighbors of a point is
+ necessary as it will tell us whether or not it is the last point of the
+ branch.
+\end_layout
+
+\begin_layout Subparagraph
+Object Fill
+\end_layout
+
+\begin_layout Standard
+Similar to lines, the points could be replaced with geometry giving an abstract
+ psychedelic growth effect or to have an effect of structures created with
+ different shapes.
+\end_layout
+
+\begin_layout Standard
+Like in case of selecting main geometry, the tool provides few default shapes
+ but the user is given the option to import and use whatever object he/
+ she wants instead.
+ The selected shape will replace all the aggregate points.
+ Again, to make the effect more visually interesting, the choice of scale
+ variation is provided.
+ The distance of each point from the boundary is calculated and Copy Stamp
+ is used to allot the distance to the Uniform Scale attribute of the object
+ being copied.
+ The copied object near the boundary of the geometry will be smaller in
+ size compared to the ones towards the center.
+ 
+\end_layout
+
+\begin_layout Standard
+In both the above cases there will be interpenetration of geometries which
+ might not be a desirable effect at times and for the same reason, an additional
+ control for intersections is provided.
+ For each point, the distance from the nearest point is calculated and the
+ half of this distance is used as scale of the geometry being copied on
+ that point.
+ Only half the distance is used because, if the geometry being copied has
+ any protrusion, there is sufficient space to accommodate it well.
+\end_layout
+
+\begin_layout Standard
+Algo
+\end_layout
+
+\begin_layout Standard
+The other aspect considered for the shape fill is color.
+ Color is decided based on the distance of the point from the boundary.
+ The change in color with distance gives a shading effect with the darker
+ shades towards the boundary and lighter shades towards the center.
+ This can again be randomized with a rand() function based on the point
+ number @ptnum, frame $F or anything user wishes to set.
+\end_layout
+
+\begin_layout Paragraph
+Intersection
+\end_layout
+
+\begin_layout Subparagraph
+Wire Fill
+\end_layout
+
+\begin_layout Standard
+Polywire is added to the polylines between the points.
+ Similar to the above case, wire could be either used with uniform width
+ throughout or with applied variation.
+ In case of 3D geometry and text, the scale variation was applied based
+ on distance from the boundary.
+ The same scale variation is applied here but with regards to distance from
+ the points in the intersection area (called as intersection points going
+ forward).
+ So, further a point is from the intersection points, smaller with be the
+ scale.
+\end_layout
+
+\begin_layout Standard
+Firstly, the nearest intersection point is found using nearpoint().
+ Each point then measures its distance from its nearest intersection point.
+ This distance is then fitted between 0.1 and 0.9, so that regardless of the
+ size of the object, the scale will always be a reasonable size between
+ 0.1 and 0.9.
+\end_layout
+
+\begin_layout Itemize
+fit01(distance(@P, nearpoint_position), 0.1, 0.9)
+\end_layout
+
+\begin_layout Standard
+Applying the fitted valued directly will give us increasing scale as the
+ distance increases.
+ Since we require the opposite, we take the complement of the value before
+ applying it to scale the width of polywire.
+ 
+\end_layout
+
+\begin_layout Standard
+The seeds for growth are selected in a slightly different manner.
+ A distance value is provided and if the distance of the point from the
+ intersection point is greater than the provided distance, the point will
+ be considered as a potential seed point.
+ The second criteria of one neighbor remains the same.
+ This means, all the points beyond the said distance with one neighbor will
+ sprout flowers or leaves.
+\end_layout
+
+\begin_layout Subparagraph
+Object Fill
+\end_layout
+
+\begin_layout Standard
+The object fill for Intersection is similar to Text and 3D Geometry apart
+ from the scaling.
+ Scaling in this cases applies in a similar manner as the wire fill, the
+ farther the point from the intersection points, smaller the object being
+ copied onto it.
+ If the overlap is to be removed, the method of scaling with respect to
+ the nearest neighbor is called and each copied object will have its own
+ space.
+\end_layout
+
+\begin_layout Subsection
+Problems Encountered and Attempted Solutions
+\end_layout
+
+\begin_layout Subsubsection
+Controlling Particle Emission
+\end_layout
+
+\begin_layout Standard
+The emitter are scattered inside the geometry and they give birth to random
+ walkers.
+ When the growing aggregate reaches a certain distance from the emitter(s),
+ it should stop the particle emission thus avoiding the repeated clustering
+ of particles at the same location.
+\end_layout
+
+\begin_layout Standard
+There were two approaches to solve this problem, firstly to nullify the
+ birthing particles and secondly to remove the emitter itself.
+\end_layout
+
+\begin_layout Standard
+In the first method, if the impulse emission is set to zero based on some
+ condition, it will affect all the emitters and they all will stop emission
+ simultaneously.
+ This is not a favorable case since it might be possible that few of the
+ emitters are still not in the contact region of the aggregate.
+ This leaves us with the second option to remove the emitters as they reach
+ the vicinity of the aggregate.
+ While working on the method I realized that though emitted particles and
+ emission rate could be controlled from inside the pop network, the emitters
+ themselves cannot be accessed from within pop network.
+ This makes sense because the initially scattered particles which are acting
+ as emitter are at the SOP Level and cannot be accessed inside pop network.
+\end_layout
+
+\begin_layout Standard
+A feedback system had to be created to make the emitters aware of the growing
+ aggregate and this was done using a sover sop.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Connecting Aggregate Particles
+\end_layout
+
+\begin_layout Standard
+After the color is transferred using attribute transfer and the particles
+ are stopped, they are connected using polylines.
+ The first method I used for this was, checking two nearest neighbors for
+ each point in the stopped group using the nearpoint vex function and connecting
+ to them.
+ This did create joints but they were broken segments with pieces scattered
+ all over the geometry.
+ This I understood was because firstly the nearpoint function considers
+ one of the nearest points of a point as itself and secondly, for a pair
+ of points, their second near point would be each other meaning that each
+ point would be connecting to itself and one other point thus giving the
+ discontinuous pieces.
+ I tried increasing the near point count, but still the result was not as
+ expected.
+\end_layout
+
+\begin_layout Standard
+The second method was to use point cloud (pcopen) for each walker point
+ to find the closest point to it.
+ Now once the closest point is determined, connect to it only if it is a
+ part of stopped group.
+ This worked well giving a continuous spread of connected points.
+\end_layout
+
+\begin_layout Subsubsection
+Normal Inversion for External Files
+\end_layout
+
+\begin_layout Standard
+Apart from using the default geometries provided by the tool, the user has
+ the flexibility to use any desired geometry.
+ Keeping note that this geometry could be a .bgeo or alembic file, the tool’s
+ compatibility had to be tested with both these file formats.
+ 
+\end_layout
+
+\begin_layout Standard
+A file of each format was imported and tested but it was noticed that particle
+ emission was not being handled properly.
+ The emission was happening only at few selected parts of the geometry and
+ not throughout the geometry as was supposed to be.
+ After several tests and modifications, it was found geometry normals were
+ not properly oriented.
+ At certain locations, normals flipped and that is why the particle flow
+ in those areas was interrupted.
+\end_layout
+
+\begin_layout Subsubsection
+IsoOffset, Converting Geometry to Volume
+\end_layout
+
+\begin_layout Standard
+While converting the geometry to volume, there could be possibility of encounter
+ing noise or stretch lines.
+ The reason for such appearance is not thoroughly clear but it is observed
+ that this is independent of whether the geometry is imported from outside
+ or is modeled in Houdini.
+ Also is it not necessary that all geometries when converted to volume will
+ have the uncanny stretch lines.
+\end_layout
+
+\begin_layout Standard
+One possible fix tested for this is to use Particle Fluid Surface.
+ Once the geometry is selected, a scatter node is appended to it which will
+ scatter points on the surface of the geometry following which the Particle
+ Fluid Surface is used which will generate a surface around the particles.
+ The surface definition could be modified by changing Particle Separation
+ parameter.
+ This will generate a surface in the shape of the passed geometry.
+ Post this an IsoOffset could be used which will give volume properly wrapped
+ within the geometry provided.
+\end_layout
+
+\begin_layout Subsection
+Efficiency
+\end_layout
+
+\begin_layout Section
+Application
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Section
+References
+\end_layout
+
+\begin_layout Section
+Appendix
+\end_layout
+
+\end_body
+\end_document
