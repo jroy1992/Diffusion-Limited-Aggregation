@@ -1012,6 +1012,14 @@ The object fill for Intersection is similar to Text and 3D Geometry apart
 Problems Encountered and Attempted Solutions
 \end_layout
 
+\begin_layout Standard
+A number of problems were dealt with during the development phase.
+ Some of them were minor issues with easy fixes but others required experimentin
+g with different probable proposals.
+ Few of the major problems encountered and various solutions attempted are
+ stated below.
+\end_layout
+
 \begin_layout Subsubsection
 Controlling Particle Emission
 \end_layout
@@ -1132,12 +1140,52 @@ One possible fix tested for this is to use Particle Fluid Surface.
  within the geometry provided.
 \end_layout
 
+\begin_layout Subsubsection
+Transformation
+\end_layout
+
 \begin_layout Subsection
 Efficiency
 \end_layout
 
+\begin_layout Standard
+The tool requires simulation of particles inside the 3D object.
+ Time taken for the process mainly depends on the search distance.
+ The search distance is directly proportional to the size of the object.
+ Smaller the search distance would mean processing larger number of particles
+ per frame and might take 1:30-2 minutes to fully cover the object.
+ With an optimal search distance (which is decided relative to the object
+ size), the time could be reduced down to 45-60 seconds.
+ An even higher distance would take about 15-30 seconds but the downside
+ would be, the entire object will not be fully covered.
+\end_layout
+
+\begin_layout Standard
+It is definitely slower than Houdini's inbuilt fractal generator i.e.
+ L-Systems which generates simple patterns almost instantly and the more
+ complex ones in less than 30 seconds.
+ But compared to attempting to build a similar structure manually which
+ might take several hours, the tool is a better option.
+ Also within 3-4 attempts, the user can establish the optimal search distance
+ which will optimize both the number of particles processed per frame and
+ the time taken for processing.
+ 
+\end_layout
+
 \begin_layout Section
-Application
+Applications
+\end_layout
+
+\begin_layout Subsection
+Vines
+\end_layout
+
+\begin_layout Subsection
+Uncanny Growth
+\end_layout
+
+\begin_layout Subsection
+Injection
 \end_layout
 
 \begin_layout Section
