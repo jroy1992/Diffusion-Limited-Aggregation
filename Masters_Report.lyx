@@ -69,9 +69,14 @@
 \begin_body
 
 \begin_layout Abstract
-The purpose of this work is to ...
- the phenomenon of Diffusion Limited Aggregation inside 3D models.
- 
+The primary objective of this work is to explore the phenomenon of Diffusion
+ Limited Aggregation inside 3D models using Houdini.
+ A brief discussion on DLA and the approach used for the implementation
+ of same in Houdini will be examined.
+ Issues intrinsic to the process will be addressed along with the solutions
+ employed.
+ As a final wrap up, few of the many possible application of the designed
+ system will be touched upon.
 \end_layout
 
 \begin_layout Section
@@ -348,6 +353,10 @@ The first task for each random-walk-accelerated step is to determine the
 \end_inset
 
  It is observed that, lower the bulk velocity lower is the density.
+\end_layout
+
+\begin_layout Subsection
+Mathematical Aspect
 \end_layout
 
 \begin_layout Section
@@ -850,6 +859,7 @@ Adding Geometry
 Now that we have both the points and lines, these can be used for carrying
  geometry which could then be used for the application of different shaders
  or textures or simply to add aesthetic appeal.
+ 
 \end_layout
 
 \begin_layout Paragraph
@@ -891,6 +901,19 @@ Since this effect could also be used to grow hedge or foliage, additional
  for growth only at the end points and number of neighbors of a point is
  necessary as it will tell us whether or not it is the last point of the
  branch.
+\end_layout
+
+\begin_layout Standard
+To have the additional geometry that is copied onto the seed points actually
+ look a part of the branch, direction of the normals has to be fixed.
+ A proper connection should ideally have the normals pointing in the direction
+ of the branch.
+ This could be achieved by taking vector difference between a point's position
+ and the position of the point it will be connecting to.
+ The difference then could be set as the direction for normals.
+ This way, all the normals will be pointing in the direction of the edge
+ with the normals for the extreme end points pointing directly outwards
+ instead of being at some arbitrary angle.
 \end_layout
 
 \begin_layout Subparagraph
@@ -1176,12 +1199,65 @@ It is definitely slower than Houdini's inbuilt fractal generator i.e.
 Applications
 \end_layout
 
+\begin_layout Standard
+The section deals with three of the many possible ways the tool could be
+ used for.
+ Two different 3D models: teapot and rubbertoy and a 3D text has been used
+ to show the adaptive ability of the tool.
+ 
+\end_layout
+
 \begin_layout Subsection
 Vines
 \end_layout
 
+\begin_layout Standard
+The connecting lines when applied with polywire could be used for vine like
+ growth effect.
+ Polywire with the option of decreasing width with distance enabled has
+ been used.
+ This would as stated before, have finer branches near the boundary of the
+ geometry and thicker ones towards the center.
+ 
+\end_layout
+
+\begin_layout Standard
+Default flowers are copied onto the seeds of growth, again with a variation
+ effect with respect to distance to have a better visual appeal.
+ Instead of simply copying, the growth of the flower can also be animated
+ by scaling them with time but that aspect has not been considered here.
+ 
+\end_layout
+
+\begin_layout Standard
+Apart from just the addition of the flowers (or any user preferred geometry),
+ the user is given the control to remove flowers from any location of the
+ geometry.
+ This is accomplished using Paint tool.
+ The removal area is painted upon and the seeds of growth which inherit
+ the painted color using attribute transfer will no longer act as seeds
+ of growth and any geometry placed on these points will be removed.
+ The purpose of the removal option is to give user further control over
+ where to add the additional geometry.
+\end_layout
+
 \begin_layout Subsection
 Uncanny Growth
+\end_layout
+
+\begin_layout Standard
+The propagation effect of DLA can be used to show spreading of disease or
+ virus.
+ Effect applied here uses metaball which is copied onto the aggregate points
+ as they are being generated per frame.
+ The advantage of using a metaball is that it provides a simple method for
+ creating organic looking surface.
+ 
+\end_layout
+
+\begin_layout Standard
+As the aggregate points spread through the rubbertoy geometry, the effect
+ feels like a blobbly mass advancing throughout the object body.
 \end_layout
 
 \begin_layout Subsection
@@ -1190,6 +1266,23 @@ Injection
 
 \begin_layout Section
 Conclusion
+\end_layout
+
+\begin_layout Section
+Future Work
+\end_layout
+
+\begin_layout Standard
+The system designed could be further advanced by controlling the simulation
+ start and finish frames or providing the ability to limit the growth to
+ a particular section of the geometry.
+\end_layout
+
+\begin_layout Standard
+Another aspect that requires special attention is the number of particles.
+ Larger the geometry, greater will be the particles needed to completely
+ fill the geometry which will slow down the process incredibly.
+ 
 \end_layout
 
 \begin_layout Section
