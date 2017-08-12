@@ -91,8 +91,7 @@ Randomness plays a important role in Computer Graphics especially when it
  that order.
  This could at its closest be achieved using fractal patterns.
  Fractal patterns offer computer artists a way of producing controlled randomnes
-s which can be used for a variety of ...
- effects.
+s which can be used for a variety of special effects.
 \end_layout
 
 \begin_layout Standard
@@ -103,15 +102,15 @@ One of the popular methods of creating fractal patters is L-Systems.
 \end_layout
 
 \begin_layout Standard
-Though L- Systems are a powerful way of fractal generation, it encounters
+Though L- Systems are a powerful way of fractal generation, they encounter
  limitations when it comes to growth in an environment that is liable to
  change.
  Under such conditions the best approach is Diffusion Limited Aggregation,
  DLA.
- DLA is a model that is used for various scientific ...capable of producing
- fractals.
- It is in many ways similar to L - Systems topped with the advantage of
- being able to adapt to its surroundings in addition to yielding stochastic
+ DLA is a model that is used for various scientific processes and is capable
+ of producing fractal patterns.
+ It is in many ways similar to L - Systems but topped with the advantage
+ of being able to adapt to its surroundings in addition to yielding stochastic
  fractal shapes.
  
 \end_layout
@@ -121,11 +120,12 @@ DLA has been widely used to perform simulation on flat 2D planes as well
  as on 3D surfaces.
  The project aims at producing a tool capable of generating fractal patterns
  inside 3D models.
- The tool presented here can provide a simple (although primitive) tool
+ The tool presented here can provide a simple (although primitive) technique
  for artists to implement DLA in Houdini.
  The system designed is fully procedural and is adaptable to any geometrical
  shape.
- Applications....
+ This can then be used to create effects like vine creeper, injection or
+ growth proliferation.
 \end_layout
 
 \begin_layout Section
@@ -364,9 +364,9 @@ Implementation
 \end_layout
 
 \begin_layout Standard
-This section talks about the approach taken for the implementation, the
- problems encountered on way, the attempt at different solutions and finally
- the efficiency of the program in relation to .....
+This section talks about the approach taken for implementing DLA in Houdini,
+ problems encountered on way, attempt at various solutions and finally the
+ efficiency of the program in relation to different affecting factors.
 \end_layout
 
 \begin_layout Subsection
@@ -511,6 +511,37 @@ The Paint SOP provides a very visual way with a better control to choose
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+dgfd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Scattering Internal Particles
 \end_layout
@@ -605,6 +636,54 @@ A random walker can be generated at any location inside the geometry but
  cluster of particles.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/emitter_points.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/starting_emission.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Emitter points scattered inside the geometry (left) and starting emission
+ (right) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Collision and Growing Aggregate
 \end_layout
@@ -677,7 +756,15 @@ pcimport()
 \begin_layout Standard
 Once the “nearpt” is found it is checked if it is in the aggregate group.
  If yes, the walker is asked to stop, change color and is grouped under
- a separate group.
+ a separate group, 
+\begin_inset Quotes eld
+\end_inset
+
+stopped
+\begin_inset Quotes erd
+\end_inset
+
+.
  After the first frame, the walkers are made to interact with the new aggregate,
  i.e.
  the initial aggregate point and the newly stopped points and the same process
@@ -700,7 +787,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-sfkdjkh
+Walker point collision with the growing aggregate
 \end_layout
 
 \end_inset
@@ -715,7 +802,56 @@ status open
 
 \begin_layout Plain Layout
 
-gfdfgd
+1.
+ select search distance
+\end_layout
+
+\begin_layout Plain Layout
+
+2.
+ find two neighbor points within search distance
+\end_layout
+
+\begin_layout Plain Layout
+
+3.
+ loop through neighbor points
+\end_layout
+
+\begin_layout Plain Layout
+
+4.	fetch point number of neighbor points
+\end_layout
+
+\begin_layout Plain Layout
+
+5.	if neighbor points belongs to aggregate or stopped group
+\end_layout
+
+\begin_layout Plain Layout
+
+6.		stop current point
+\end_layout
+
+\begin_layout Plain Layout
+
+7.		regroup from walker to stopped
+\end_layout
+
+\begin_layout Plain Layout
+
+8.		change color
+\end_layout
+
+\begin_layout Plain Layout
+
+9.	end if
+\end_layout
+
+\begin_layout Plain Layout
+
+10.
+ end loop
 \end_layout
 
 \begin_layout Plain Layout
@@ -725,10 +861,6 @@ gfdfgd
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -784,7 +916,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-fhgfhg
+Stopping emission based on new aggregate
 \end_layout
 
 \end_inset
@@ -799,7 +931,45 @@ status open
 
 \begin_layout Plain Layout
 
-fdsfsdf
+1.
+ select search distance
+\end_layout
+
+\begin_layout Plain Layout
+
+2.
+ find nearest aggregate or stopped point
+\end_layout
+
+\begin_layout Plain Layout
+
+3.
+ calculate nearest point position
+\end_layout
+
+\begin_layout Plain Layout
+
+4.
+ calculate distance between emitter and resp.
+ nearest point
+\end_layout
+
+\begin_layout Plain Layout
+
+5.
+ if distance < search distance
+\end_layout
+
+\begin_layout Plain Layout
+
+6.
+ 	remove from emitter group
+\end_layout
+
+\begin_layout Plain Layout
+
+7.
+ end if
 \end_layout
 
 \begin_layout Plain Layout
@@ -818,10 +988,6 @@ fdsfsdf
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-****algo***
 \end_layout
 
 \begin_layout Subsubsection
@@ -851,14 +1017,62 @@ As mentioned earlier, inside the POP network the “nearpt” of each walker
  stopped it using a polyline giving a propagation like growth effect.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Object_Fill/SimpleDots.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Wire_Fill/Simple_wire.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Geometry covered with aggregate points (left) and connected aggregate points
+ (right)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Adding Geometry
 \end_layout
 
 \begin_layout Standard
-Now that we have both the points and lines, these can be used for carrying
- geometry which could then be used for the application of different shaders
- or textures or simply to add aesthetic appeal.
+Now that we have both points and lines, these can be used for carrying geometry
+ which could then be used for the application of different shaders or textures
+ or simply to add aesthetic appeal.
  
 \end_layout
 
@@ -916,6 +1130,85 @@ To have the additional geometry that is copied onto the seed points actually
  instead of being at some arbitrary angle.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Wire_Fill/Uniform.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Wire_Fill/vary_with_dist.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Uniform wire fill (left) and varying width w.r.t.
+ distance (right)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wire fill with geometry added on seed points
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subparagraph
 Object Fill
 \end_layout
@@ -963,6 +1256,100 @@ The other aspect considered for the shape fill is color.
  shades towards the boundary and lighter shades towards the center.
  This can again be randomized with a rand() function based on the point
  number @ptnum, frame $F or anything user wishes to set.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Object_Fill/Uniform.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Object_Fill/Vary_dist.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Object fill with uniform scale (left) and varying size w.r.t distance (right)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Object_Fill/nonoverlap.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Object_Fill/Full_fill.png
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Object fill with no fill overlap (left) and complete fill (right)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
@@ -1016,6 +1403,68 @@ The seeds for growth are selected in a slightly different manner.
  sprout flowers or leaves.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wire fill on intersection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wire fill on intersection with geometry on seeds
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subparagraph
 Object Fill
 \end_layout
@@ -1029,6 +1478,37 @@ The object fill for Intersection is similar to Text and 3D Geometry apart
  If the overlap is to be removed, the method of scaling with respect to
  the nearest neighbor is called and each copied object will have its own
  space.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Object fill on intersection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1080,9 +1560,10 @@ In the first method, if the impulse emission is set to zero based on some
 
 \begin_layout Standard
 A feedback system was created to make the emitters aware of the growing
- aggregate and this was done be bringing SOP Level information into POP
- Level using a sover sop.
- 
+ aggregate and this was done using a sover sop.
+ Solver sop established connection between the emitters and the new aggregate
+ enabling the emitters to perform a distance comparison and to stop when
+ within a certain threshold.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1092,7 +1573,7 @@ Connecting Aggregate Particles
 \begin_layout Standard
 After the color is transferred using attribute transfer and the particles
  are stopped, they are connected using polylines.
- The first method I used for this was, checking two nearest neighbors for
+ The first method used for this was, checking two nearest neighbors for
  each point in the stopped group using the nearpoint vex function and connecting
  to them.
  This did create joints but they were broken segments with pieces scattered
@@ -1142,25 +1623,143 @@ IsoOffset, Converting Geometry to Volume
 \end_layout
 
 \begin_layout Standard
-While converting the geometry to volume, there could be possibility of encounter
-ing noise or stretch lines.
+For scattering points inside a geometry, the geometry is first converted
+ to volume using 
+\shape italic
+IsoOffset
+\shape default
+.
+ During this conversion, there could be possibility of encountering noise
+ or stretch lines.
  The reason for such appearance is not thoroughly clear but it is observed
  that this is independent of whether the geometry is imported from outside
  or is modeled in Houdini.
  Also is it not necessary that all geometries when converted to volume will
- have the uncanny stretch lines.
+ have the stretch lines.
 \end_layout
 
 \begin_layout Standard
-One possible fix tested for this is to use Particle Fluid Surface.
+One possible fix tested for this was to use Particle Fluid Surface.
  Once the geometry is selected, a scatter node is appended to it which will
  scatter points on the surface of the geometry following which the Particle
- Fluid Surface is used which will generate a surface around the particles.
+ Fluid Surface is used to generate a surface around the particles.
  The surface definition could be modified by changing Particle Separation
  parameter.
  This will generate a surface in the shape of the passed geometry.
- Post this an IsoOffset could be used which will give volume properly wrapped
- within the geometry provided.
+ After the desired shape is achieved, 
+\shape italic
+IsoOffset
+\shape default
+ could be used which will give volume properly wrapped within the geometry
+ provided without any stretch lines.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/dog_original.png
+	lyxscale 32
+	scale 32
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/volume_with_stretch_lines.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/scattered_points.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Original geometry (left), converted to volume with stretch lines (middle)
+ and points scattered in the volume (right)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/dog_particle_fluid_surface.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/dog_pfs_volume.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/dog_pfs_point_scatter.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Particle Fluid Surface applied on original geometry (left), conversion to
+ volume (middle) and points scattered in the volume (right)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1241,6 +1840,118 @@ Apart from just the addition of the flowers (or any user preferred geometry),
  where to add the additional geometry.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Applications/Screenshot from 2017-08-01 18-19-46.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vine growth on text
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Applications/Screenshot from 2017-08-01 18-24-19.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Painted area for removal of geometry
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Applications/Screenshot from 2017-08-01 18-24-32.png
+	lyxscale 65
+	scale 65
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vine post geometry removal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Uncanny Growth
 \end_layout
@@ -1257,7 +1968,7 @@ The propagation effect of DLA can be used to show spreading of disease or
 
 \begin_layout Standard
 As the aggregate points spread through the rubbertoy geometry, the effect
- feels like a blobbly mass advancing throughout the object body.
+ feels like a bloby mass advancing throughout the object body.
 \end_layout
 
 \begin_layout Subsection
@@ -1268,21 +1979,52 @@ Injection
 Conclusion
 \end_layout
 
+\begin_layout Standard
+The tool developed allows user to input any geometry and generate points
+ or connected lines inside it.
+ These points and lines could be manipulated or topped with geometry to
+ create realistic growth effect over the chosen geometry.
+ The tool is highly adaptable as the user has the choice to update the object
+ the geometry is being filled with, add his/ her own flowers and leaves
+ for the vines.
+ All these objects can be used with uniform or multiple colors or used with
+ different shaders to create the look based on the production purpose it
+ is being used for.
+ Also the system is extremely flexible should there arise a need to extend
+ it further or as a prospective research option.
+\end_layout
+
+\begin_layout Standard
+It is especially handy as is time and cost efficient when it comes to creating
+ textures that would grow and animate over an object.
+\end_layout
+
+\begin_layout Standard
+Although the tool is capable of successfully achieving many effects, there
+ still remains a plethora of possibilities in terms of better controls,
+ animation aspects and speed checks which is discussed in the following
+ section as the potential future works.
+\end_layout
+
 \begin_layout Section
 Future Work
 \end_layout
 
 \begin_layout Standard
-The system designed could be further advanced by controlling the simulation
- start and finish frames or providing the ability to limit the growth to
- a particular section of the geometry.
+The system designed could be further advanced by having control over the
+ simulation start and finish frames or providing the ability to limit the
+ growth to a particular section of the geometry.
 \end_layout
 
 \begin_layout Standard
 Another aspect that requires special attention is the number of particles.
  Larger the geometry, greater will be the particles needed to completely
  fill the geometry which will slow down the process incredibly.
- 
+ In such a case, the system should have the mechanism to reduce the point
+ density through minimum distance constraint i.e.
+ removing the points within a particular distance of each point and thus
+ bringing down the number of points significantly but leaving the overall
+ shape unaffected.
 \end_layout
 
 \begin_layout Section
