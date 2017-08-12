@@ -995,8 +995,11 @@ Joining Aggregate Points
 \end_layout
 
 \begin_layout Standard
-At the end of the simulation we will have a .bgeo file with thousands of
- points.
+At the end of the simulation we will have a 
+\shape italic
+.bgeo
+\shape default
+ file with thousands of points.
  These points could be used as it is to create a particle effect or they
  could be used for some propagation like effect if joined together using
  lines.
@@ -1011,8 +1014,15 @@ As mentioned earlier, inside the POP network the “nearpt” of each walker
  At the time when the walker is stopped, a connection is established between
  the walker and its “nearpt”.
  As the point number of both the points is known at this instance, they
- can be joined using a polyline by adding vertex to both using addvertex()
- function and setting connection using addprim().
+ can be joined using a polyline by adding vertex to both using 
+\shape italic
+addvertex()
+\shape default
+ function and setting connection using 
+\shape italic
+addprim()
+\shape default
+.
  In this manner, as each walker is stopped it connects to the point which
  stopped it using a polyline giving a propagation like growth effect.
 \end_layout
@@ -1094,7 +1104,11 @@ The lines are converted to geometry using the polywire sop which constructs
  For varying width, the concept of having thicker branches at the geometry
  center and finer branches near the boundary is applied.
  The distance of each point from the geometry boundary is measured using
- xyzdist() function.
+ 
+\shape italic
+xyzdist()
+\shape default
+ function.
  This distance is then used to drive the polywire width giving a linear
  decrease as the points reach the geometry boundary.
 \end_layout
@@ -1246,16 +1260,23 @@ In both the above cases there will be interpenetration of geometries which
 \end_layout
 
 \begin_layout Standard
-Algo
-\end_layout
-
-\begin_layout Standard
 The other aspect considered for the shape fill is color.
  Color is decided based on the distance of the point from the boundary.
  The change in color with distance gives a shading effect with the darker
  shades towards the boundary and lighter shades towards the center.
- This can again be randomized with a rand() function based on the point
- number @ptnum, frame $F or anything user wishes to set.
+ This can again be randomized with a 
+\shape italic
+rand()
+\shape default
+ function based on the point number 
+\shape italic
+@ptnum
+\shape default
+, frame 
+\shape italic
+$F
+\shape default
+ or anything user wishes to set.
 \end_layout
 
 \begin_layout Standard
@@ -1571,28 +1592,99 @@ Connecting Aggregate Particles
 \end_layout
 
 \begin_layout Standard
-After the color is transferred using attribute transfer and the particles
- are stopped, they are connected using polylines.
- The first method used for this was, checking two nearest neighbors for
- each point in the stopped group using the nearpoint vex function and connecting
- to them.
- This did create joints but they were broken segments with pieces scattered
- all over the geometry.
- This I understood was because firstly the nearpoint function considers
- one of the nearest points of a point as itself and secondly, for a pair
- of points, their second near point would be each other meaning that each
- point would be connecting to itself and one other point thus giving the
- discontinuous pieces.
- I tried increasing the near point count, but still the result was not as
- expected.
+To establish a connection between the points, they were to be joined with
+ polylines.
+ This connection can be established after all the points are stopped or
+ at the instance each point is being stopped.
+ Both the methods were tested.
+ The first method was to check two nearest neighbors for each point in the
+ stopped group using the 
+\shape italic
+nearpoint()
+\shape default
+ function and connecting to them.
+ This did join the points but the joints were broken segments with pieces
+ scattered all over the geometry.
+ Per the understanding this was because, firstly the 
+\shape italic
+nearpoint()
+\shape default
+ function considers one of the nearest points of a point as itself and secondly,
+ for a pair of points, their second near point for those points would be
+ each other meaning that each point would be connecting to itself and one
+ other point thus giving the discontinuous pieces.
+ The neighbor point count was increased so that each point could connect
+ to more than one point , but still the result was not as expected.
 \end_layout
 
 \begin_layout Standard
-The second method was to use point cloud (pcopen) for each walker point
- to find the closest point to it.
- Now once the closest point is determined, connect to it only if it is a
- part of stopped group.
+The second method was to connect the points at the time they are being stopped.
+ Using 
+\shape italic
+pcopen()
+\shape default
+ the closest point to each walker was found.
+ Once the closest point was determined, connection was set only if it was
+ part of the stopped group.
  This worked well giving a continuous spread of connected points.
+\end_layout
+
+\begin_layout Standard
+The other alternative was to use the method of copy stamping as described
+ by Cashmore().
+ He uses straight lines to be copied over stopped points.
+ The distance between a point and the point it collided with was used as
+ stamp to vary the length of the line that is being copied to ensure that
+ line is of length that is equal to the distance between the points it is
+ being placed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/connecting_aggregate_broken.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/connecting_aggregate_multi_neighbors.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Connecting aggregate point with two neighbors (left) and connection with
+ multiple neighbors (right)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1602,8 +1694,15 @@ Normal Inversion for External Files
 \begin_layout Standard
 Apart from using the default geometries provided by the tool, the user has
  the flexibility to use any desired geometry.
- Keeping note that this geometry could be a .bgeo or alembic file, the tool’s
- compatibility had to be tested with both these file formats.
+ Keeping note that this geometry could be a 
+\shape italic
+.bgeo
+\shape default
+ or 
+\shape italic
+alembic (.abc)
+\shape default
+ file, the tool’s compatibility had to be tested with both these file formats.
  
 \end_layout
 
@@ -1614,8 +1713,14 @@ A file of each format was imported and tested but it was noticed that particle
  not throughout the geometry as was supposed to be.
  After several tests and modifications, it was found geometry normals were
  not properly oriented.
- At certain locations, normals flipped and that is why the particle flow
- in those areas was interrupted.
+ At certain locations, normals were flipped and that is why the particle
+ flow in those areas was interrupted.
+\end_layout
+
+\begin_layout Standard
+The reverse node in houdini to change the direction of the normals could
+ not be used since that would change the direction of even those normals
+ which are properly oriented.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1655,14 +1760,19 @@ IsoOffset
 \end_layout
 
 \begin_layout Standard
+The fix is not embedded in the tool because the surface definition is not
+ constant and varies based on the shape and complexity of the geometry.
+ All the default geometries provided by the tool are tested to have no stretch
+ lines and for any geometry imported by the user, should the noise or stretch
+ lines appear, the fix can be used to have proper particle scattering.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -1957,18 +2067,60 @@ Uncanny Growth
 \end_layout
 
 \begin_layout Standard
-The propagation effect of DLA can be used to show spreading of disease or
- virus.
- Effect applied here uses metaball which is copied onto the aggregate points
- as they are being generated per frame.
- The advantage of using a metaball is that it provides a simple method for
- creating organic looking surface.
+The propagation effect of DLA can be used to show spreading of disease,
+ virus or any such uncanny growth effect.
+ The application is to show the growth of an organic like matter which subsequen
+tly spread and engulfs the entire geometry.
+ Metaball with the copy to points option was chosen.
+ The reason of choosing metaball is because it provides a simple method
+ for creating organic looking surface.
+ The effect has the feel of a blobby substance covering the geometry.
+\end_layout
+
+\begin_layout Standard
+The effect was tested with both uniform color and color variation with distance,
+ each giving interesting results in its own stand.
  
 \end_layout
 
 \begin_layout Standard
-As the aggregate points spread through the rubbertoy geometry, the effect
- feels like a bloby mass advancing throughout the object body.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/uncanny_growth.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Growth propagation using metaball in rubbertoy: color variation with distance
+ (left) and uniform color (right)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
