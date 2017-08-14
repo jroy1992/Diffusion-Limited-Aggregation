@@ -25,9 +25,19 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\use_hyperref false
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -51,6 +61,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -77,6 +91,13 @@ The primary objective of this work is to explore the phenomenon of Diffusion
  employed.
  As a final wrap up, few of the many possible application of the designed
  system will be touched upon.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -186,6 +207,67 @@ L-Systems get its geometrical representation from Turtle Graphics.
 n by the turtle: moving forwards a given distance, turning through a given
  distance.
  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Ergen]{Ergen}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/l_system.png
+	lyxscale 59
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/turtle_graphics.jpg
+	lyxscale 70
+	width 30col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+L-System generations and Turtle Graphics
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -209,8 +291,21 @@ Diffusion Limited Aggregation
 \end_layout
 
 \begin_layout Standard
-This method was introduced by Written and Sander (), who first experimented
- with DLA as a model for irreversible colloidal aggregation.
+This method was introduced by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Witten1983]{Witten and Sander (1983)}
+\end_layout
+
+\end_inset
+
+, who first experimented with DLA as a model for irreversible colloidal
+ aggregation.
  The process started at the grid centre where a particle was placed.
  Eventually a diffusing particle was introduced in the scene which was allowed
  to wander freely until it was within a fixed distance of the centre where
@@ -246,8 +341,21 @@ y of the attachment point owing to the Brownian motion, the resultant patter
  Yet the association of one particle with other to form of dendrite branches
  spread out around the initial seed portrays ….order.
  This order in chaos found DLA its place in computer graphics.
- Cashmore() mentions applications of DLA in other arenas of science like
- exploration of oil and crystal formation.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Cashmore2009]{Cashmore (2009)}
+\end_layout
+
+\end_inset
+
+ mentions applications of DLA in other arenas of science like exploration
+ of oil and crystal formation.
  It is also used as a catalyst for certain chemical reactions, as a way
  to vary the rate of reaction without altering the end product.
  
@@ -260,7 +368,24 @@ Catalysts need a large surface area to be most effective and often are arranges
 \begin_inset Quotes erd
 \end_inset
 
- (Cashmore, 2009)
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Cashmore2009]{Cashmore (2009)}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -278,7 +403,20 @@ Though both DLA and L systems are based on the concept of incremental growth,
 
 \begin_layout Standard
 There are few examples of DLA being implemented on or inside 3D surfaces.
- One very significant for this project is by Cashmore ( ).
+ One very significant for this project is by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Cashmore2009]{Cashmore (2009)}
+\end_layout
+
+\end_inset
+
+.
  He develops the tool for generation of DLA on the 3D surface using it to
  create ivy like growth structure as well as applying texture map to create
  lava effect, rust propagation and displacement effect.
@@ -293,9 +431,20 @@ There are few examples of DLA being implemented on or inside 3D surfaces.
 \end_layout
 
 \begin_layout Standard
-Brouke () tests the idea of constraining DLA growth by a surface or solid
- described by an STL file format which describes the surface as a collection
- of triangles.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Bourke2006]{Bourke (2006)}
+\end_layout
+
+\end_inset
+
+ tests the idea of constraining DLA growth by a surface or solid described
+ by an STL file format which describes the surface as a collection of triangles.
  During simulation if the growing structure intersects a triangle, either
  the new particle is not added to the branch which then continues random
  walk or the intersection with the triangle is calculated and a branch is
@@ -310,21 +459,57 @@ Brouke () tests the idea of constraining DLA growth by a surface or solid
 \end_layout
 
 \begin_layout Standard
-One of the most prominent works in DLA is by Lomas() who created the aggregate
- structure by simulating the paths of millions of particles flowing in a
- field of force thus creating structures of intricate design and immense
- complexity.
+One of the most prominent works in DLA is by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Lomas2005]{Lomas (2005)}
+\end_layout
+
+\end_inset
+
+ who created the aggregate structure by simulating the paths of millions
+ of particles flowing in a field of force thus creating structures of intricate
+ design and immense complexity.
  Apart from just the Brownian motion, the particles are influenced by the
  flow field.
  “Forms are created by a process of indirect design: the shape of forms
  is governed by controlling initial conditions and rules for deposition
- rather than by designing the final form directly.” (aggregation: complexity
- out of simplicity) 
+ rather than by designing the final form directly.” 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Lomas2005]{Lomas (2005)}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Stock() experiments with DLA in 3D without any external constraint but introduce
-s two new factors of influence; stickiness and bulk velocity.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Stock2003]{Stock (2003)}
+\end_layout
+
+\end_inset
+
+experiments with DLA in 3D without any external constraint but introduces
+ two new factors of influence; stickiness and bulk velocity.
  Stickiness determines the probability of a particle to attach to the aggregate
  structure.
  When a particle approaches another particle within a certain distance,
@@ -357,6 +542,251 @@ The first task for each random-walk-accelerated step is to determine the
 
 \begin_layout Subsection
 Mathematical Aspect
+\end_layout
+
+\begin_layout Standard
+The measure of how complex a self similar object is given by Fractal Dimension
+ (D).
+ Approximately said, it measures the number of points lying in a given set.
+ Fractal Dimension connects the number of particles with size of the cluster.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n=r^{D}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+or
+\end_layout
+
+\begin_layout Standard
+D = log(n)/ log(r)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n$
+\end_inset
+
+ = Number of particles
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r$
+\end_inset
+
+ = size of the cluster
+\end_layout
+
+\begin_layout Standard
+for a self similar object:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n$
+\end_inset
+
+ = number of self similar pieces
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r$
+\end_inset
+
+ = magnification factor
+\end_layout
+
+\begin_layout Standard
+for fractals in two dimensions, D ≈ 1.71 and in three dimensions, D ≈ 2.5.
+\end_layout
+
+\begin_layout Standard
+Harley(), states the observation reached through numerical simulations,
+ that in high numbers of spacial dimensions d, the fractal dimension of
+ the cluster D → d-1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+In addition, the fractal dimension of DLA appears to depend weakly on the
+ geometry of the simulation.
+ The result D ≈ 1.71 is obtained for radial growth from a seed.
+ However, for growth from a surface or in a channel, one obtains a result
+ closer to D ≈ 1.67, a small but robust difference from the radial growth
+ ...
+ that seems to persist to the asymptotic growth limit.
+\begin_inset Quotes erd
+\end_inset
+
+ Harley()
+\end_layout
+
+\begin_layout Standard
+\noindent
+The original method of calculating fractal dimension is by computing density
+ correlation function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C_{T}(r)=<ρ(r')ρ(r'+r)>
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Density correlation function for N particle aggregation gives information
+ about particle distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(r)=N^{-}\sum_{r'}\rho(r')\rho(r'+r)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C(r)$
+\end_inset
+
+ = average density
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $r$
+\end_inset
+
+ = distance separating the two sites
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C(r)$
+\end_inset
+
+ can be considered as a measurement of the density in a shell with mass
+ 
+\begin_inset Formula $dM(r)$
+\end_inset
+
+, radius 
+\begin_inset Formula $r$
+\end_inset
+
+, and thickness 
+\begin_inset Formula $dr$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(r)=dM(r)/2πrdr
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Amount of Mass of an object inside a circle of radius 
+\begin_inset Formula $r$
+\end_inset
+
+ has a power law relation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+M(r)\text{\ensuremath{\propto}}r^{D}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Substituting equation (4) in equation (3)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(r)\sim dr^{D}/2πrdr
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\text{⇒}C(r)\sim r^{D-1}dr/2πrdr\sim r^{D-2}\text{≡}r^{D-d}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+For a self similar fractal, the density-density correlation function is
+ expected to scale as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(r)\sim r^{-\alpha}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+From (6) and (7), we get:
+\end_layout
+
+\begin_layout Standard
+D = -𝛼 + d
+\end_layout
+
+\begin_layout Itemize
+D = Fractal dimension
+\end_layout
+
+\begin_layout Itemize
+d = Euclidean Dimension
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -522,10 +952,23 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/painted_teapot.png
+	lyxscale 30
+	width 40col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-dgfd
+Painted geometry surface
 \end_layout
 
 \end_inset
@@ -537,6 +980,88 @@ dgfd
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/colored_points.png
+	lyxscale 30
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Particles scattered inside the geometry with colored point in the painted
+ area
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/injection_visualization_points.png
+	lyxscale 30
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Aggregate points at the junction of intersection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -592,14 +1117,20 @@ Random walkers are particles which will via random movement collide with
 \end_layout
 
 \begin_layout Itemize
+
+\shape italic
 fit01 (rand (@ptnum * $FF), 0.1, 1) 
 \end_layout
 
 \begin_layout Standard
 Analyzing the expression, the rand function creates a random number between
  0 and 1.
- It takes the combination of @ptnum which is the point number and the floating
- frame number $FF to ensure varied speed for every particle per frame basis.
+ It takes the combination of 
+\shape italic
+@ptnum
+\shape default
+ which is the point number and the floating frame number $FF to ensure varied
+ speed for every particle per frame basis.
  It ensures that each particle has a random number between 0 and 1.
  The role of fit01 is to take the range from 0 to 1 and fit it to be between
  a new range from 0.1 to 1.
@@ -613,6 +1144,8 @@ Analyzing the expression, the rand function creates a random number between
 \end_layout
 
 \begin_layout Itemize
+
+\shape italic
 fit01 (rand (@ptnum * $FF * unique_number), 0.1, 1)
 \end_layout
 
@@ -647,18 +1180,54 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/emitter_points.png
 	lyxscale 50
-	scale 50
+	width 80col%
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Emitter points scattered inside the geometry starting emission
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/starting_emission.png
 	lyxscale 50
-	scale 50
+	width 80col%
 
 \end_inset
 
@@ -666,8 +1235,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Emitter points scattered inside the geometry (left) and starting emission
- (right) 
+Starting emission
 \end_layout
 
 \end_inset
@@ -697,8 +1265,12 @@ Now that random walkers are generated, it is to be checked if during their
 \shape italic
 SOP Level
 \shape default
- and the walkers are at POP Level, the walkers cannot interact with the
- seeds until they are brought down to the 
+ and the walkers are at 
+\shape italic
+POP Level
+\shape default
+, the walkers cannot interact with the seeds until they are brought down
+ to the 
 \shape italic
 POP Level
 \shape default
@@ -728,7 +1300,11 @@ sopsolver
 \end_layout
 
 \begin_layout Standard
-The entire procedure is handled using vex code inside the sopsolver.
+The entire procedure is handled using vex code inside the 
+\shape italic
+sopsolver
+\shape default
+.
  
 \shape italic
 Pcopen()
@@ -1038,18 +1614,11 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Master_trial/Images/Object_Fill/SimpleDots.png
 	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Master_trial/Images/Wire_Fill/Simple_wire.png
-	lyxscale 40
-	scale 40
+	width 80col%
 
 \end_inset
 
@@ -1057,8 +1626,47 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Geometry covered with aggregate points (left) and connected aggregate points
- (right)
+Geometry covered with aggregate points
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Wire_Fill/Simple_wire.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Connected aggregate points
 \end_layout
 
 \end_inset
@@ -1125,20 +1733,22 @@ Since this effect could also be used to grow hedge or foliage, additional
  but to actually be a seed they have to fulfill the second criteria as well
  i.e.
  the neighbor count.
- Growth could actually happen at any point in the foliage but here we account
+ Growth can actually happen at any point in the foliage but here we account
  for growth only at the end points and number of neighbors of a point is
  necessary as it will tell us whether or not it is the last point of the
  branch.
 \end_layout
 
 \begin_layout Standard
-To have the additional geometry that is copied onto the seed points actually
- look a part of the branch, direction of the normals has to be fixed.
+The geometry added on seed points need to look like they are part of the
+ branch i.e their alignment should be in the direction of the branch.
+ For the appropriate geometry arrangement, direction of the normals has
+ to be fixed.
  A proper connection should ideally have the normals pointing in the direction
  of the branch.
  This could be achieved by taking vector difference between a point's position
  and the position of the point it will be connecting to.
- The difference then could be set as the direction for normals.
+ The difference then could be set as the direction of normal.
  This way, all the normals will be pointing in the direction of the edge
  with the normals for the extreme end points pointing directly outwards
  instead of being at some arbitrary angle.
@@ -1155,18 +1765,11 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Master_trial/Images/Wire_Fill/Uniform.png
 	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Master_trial/Images/Wire_Fill/vary_with_dist.png
-	lyxscale 40
-	scale 40
+	width 80col%
 
 \end_inset
 
@@ -1174,8 +1777,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Uniform wire fill (left) and varying width w.r.t.
- distance (right)
+Wire Fill: Uniform width
 \end_layout
 
 \end_inset
@@ -1203,10 +1805,59 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Wire_Fill/vary_with_dist.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Wire fill with geometry added on seed points
+Wire Fill: Varying width with distance from boundary
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/add_geo_3d_geo.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wire Fill: Geometry added on seed points
 \end_layout
 
 \end_inset
@@ -1229,29 +1880,34 @@ Object Fill
 
 \begin_layout Standard
 Similar to lines, the points could be replaced with geometry giving an abstract
- psychedelic growth effect or to have an effect of structures created with
- different shapes.
+ psychedelic growth effect or to have a structure created with different
+ shapes.
 \end_layout
 
 \begin_layout Standard
 Like in case of selecting main geometry, the tool provides few default shapes
- but the user is given the option to import and use whatever object he/
- she wants instead.
- The selected shape will replace all the aggregate points.
+ to select from but the user is given the option to import and use whatever
+ object he/ she wants instead.
+ The selected shape will replace the aggregate points.
  Again, to make the effect more visually interesting, the choice of scale
  variation is provided.
  The distance of each point from the boundary is calculated and Copy Stamp
- is used to allot the distance to the Uniform Scale attribute of the object
- being copied.
+ is used to allot the distance to the 
+\shape italic
+Uniform Scale
+\shape default
+ attribute of the object being copied.
  The copied object near the boundary of the geometry will be smaller in
  size compared to the ones towards the center.
  
 \end_layout
 
 \begin_layout Standard
-In both the above cases there will be interpenetration of geometries which
- might not be a desirable effect at times and for the same reason, an additional
- control for intersections is provided.
+The above cases work fine as long as finer details like geometry overlap
+ is ignored.
+ But there could be scenarios when interpenetration of geometries might
+ not be a desirable effect at and for the same reason, an additional control
+ for removing intersections is provided.
  For each point, the distance from the nearest point is calculated and the
  half of this distance is used as scale of the geometry being copied on
  that point.
@@ -1261,7 +1917,8 @@ In both the above cases there will be interpenetration of geometries which
 
 \begin_layout Standard
 The other aspect considered for the shape fill is color.
- Color is decided based on the distance of the point from the boundary.
+ Similar to scale, color has been given a variation based on the distance
+ from the boundary.
  The change in color with distance gives a shading effect with the darker
  shades towards the boundary and lighter shades towards the center.
  This can again be randomized with a 
@@ -1286,22 +1943,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Master_trial/Images/Object_Fill/Uniform.png
 	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Master_trial/Images/Object_Fill/Vary_dist.png
-	lyxscale 40
-	scale 40
+	width 80col%
 
 \end_inset
 
@@ -1309,7 +1955,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Object fill with uniform scale (left) and varying size w.r.t distance (right)
+Object Fill: Uniform scale
 \end_layout
 
 \end_inset
@@ -1337,18 +1983,11 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
-	filename /home/s4923830/Master_trial/Images/Object_Fill/nonoverlap.png
+	filename /home/s4923830/Master_trial/Images/Object_Fill/Vary_dist.png
 	lyxscale 40
-	scale 40
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Master_trial/Images/Object_Fill/Full_fill.png
-	lyxscale 40
-	scale 40
+	width 80col%
 
 \end_inset
 
@@ -1356,7 +1995,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Object fill with no fill overlap (left) and complete fill (right)
+Object Fill: Scale varying with distance
 \end_layout
 
 \end_inset
@@ -1368,6 +2007,90 @@ Object fill with no fill overlap (left) and complete fill (right)
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Object_Fill/nonoverlap.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Object Fill: check overlap 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/Object_Fill/Full_fill.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Object Fill: Complete Fill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -1383,9 +2106,9 @@ Wire Fill
 
 \begin_layout Standard
 Polywire is added to the polylines between the points.
- Similar to the above case, wire could be either used with uniform width
- throughout or with applied variation.
- In case of 3D geometry and text, the scale variation was applied based
+ Similar to the case for 3D Geometry and Text, wire could be either used
+ with uniform width throughout or with applied variation.
+ In case of 3D Geometry and Text, the scale variation was applied based
  on distance from the boundary.
  The same scale variation is applied here but with regards to distance from
  the points in the intersection area (called as intersection points going
@@ -1395,15 +2118,19 @@ Polywire is added to the polylines between the points.
 \end_layout
 
 \begin_layout Standard
-Firstly, the nearest intersection point is found using nearpoint().
- Each point then measures its distance from its nearest intersection point.
+Firstly, for each point, the nearest intersection point is found using nearpoint
+().
+ The distance between each point and its respective nearest intersection
+ point is found.
  This distance is then fitted between 0.1 and 0.9, so that regardless of the
- size of the object, the scale will always be a reasonable size between
- 0.1 and 0.9.
+ size of the object, the scale will always be within a reasonable range
+ between 0.1 and 0.9.
 \end_layout
 
 \begin_layout Itemize
-fit01(distance(@P, nearpoint_position), 0.1, 0.9)
+
+\shape italic
+@fit_distance = fit01(distance(@P, nearpoint_position), 0.1, 0.9)
 \end_layout
 
 \begin_layout Standard
@@ -1414,12 +2141,21 @@ Applying the fitted valued directly will give us increasing scale as the
  
 \end_layout
 
+\begin_layout Itemize
+
+\shape italic
+@point_distance = 1 - @fit_distance
+\end_layout
+
 \begin_layout Standard
-The seeds for growth are selected in a slightly different manner.
+Moving to adding additional geometry like flowers or leaves, unlike the
+ 3D Geometry and Text where all the end points within a certain distance
+ from the geometry boundary are considered as seeds, the seeds for growth
+ for Intersection are selected in a slightly different manner.
  A distance value is provided and if the distance of the point from the
  intersection point is greater than the provided distance, the point will
  be considered as a potential seed point.
- The second criteria of one neighbor remains the same.
+ The second criteria of having one neighbor remains the same.
  This means, all the points beyond the said distance with one neighbor will
  sprout flowers or leaves.
 \end_layout
@@ -1435,10 +2171,19 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/injection_wines_vary.png
+	lyxscale 45
+	width 80col%
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Wire fill on intersection
+Wire Fill: Varying width with distance from the intersection points
 \end_layout
 
 \end_inset
@@ -1466,6 +2211,51 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/injection_vnies_uni.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wire Fill: Uniform width
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/injection_demo_addgeo.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1493,12 +2283,12 @@ Object Fill
 \begin_layout Standard
 The object fill for Intersection is similar to Text and 3D Geometry apart
  from the scaling.
- Scaling in this cases applies in a similar manner as the wire fill, the
+ Scaling in this case applies in a similar manner as the wire fill, the
  farther the point from the intersection points, smaller the object being
  copied onto it.
  If the overlap is to be removed, the method of scaling with respect to
- the nearest neighbor is called and each copied object will have its own
- space.
+ the nearest neighbor is invoked and each copied object will scale down
+ accordingly to have its own independent space.
 \end_layout
 
 \begin_layout Standard
@@ -1512,10 +2302,59 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/injection_demo_start.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Object fill on intersection
+Object Fill: Area of interaction as the starting point
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/intersection_demo_fill.png
+	lyxscale 40
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Object Fill: Complete fill
 \end_layout
 
 \end_inset
@@ -1631,7 +2470,20 @@ pcopen()
 
 \begin_layout Standard
 The other alternative was to use the method of copy stamping as described
- by Cashmore().
+ by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Cashmore2009]{Cashmore (2009)}
+\end_layout
+
+\end_inset
+
+.
  He uses straight lines to be copied over stopped points.
  The distance between a point and the point it collided with was used as
  stamp to vary the length of the line that is being copied to ensure that
@@ -1646,22 +2498,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/connecting_aggregate_broken.png
 	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Pictures/connecting_aggregate_multi_neighbors.png
-	lyxscale 50
-	scale 50
+	width 80col%
 
 \end_inset
 
@@ -1669,8 +2510,47 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Connecting aggregate point with two neighbors (left) and connection with
- multiple neighbors (right)
+Connecting aggregate point with two neighbors
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/connecting_aggregate_multi_neighbors.png
+	lyxscale 50
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Connection with multiple neighbors 
 \end_layout
 
 \end_inset
@@ -1721,6 +2601,90 @@ A file of each format was imported and tested but it was noticed that particle
 The reverse node in houdini to change the direction of the normals could
  not be used since that would change the direction of even those normals
  which are properly oriented.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/normal_inversion.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Normal inversion for the geometry: 
+\shape italic
+.bgeo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/normal_inversion_alembic.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Normal inversion for the geometry: 
+\shape italic
+.abc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1775,26 +2739,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/dog_original.png
 	lyxscale 32
-	scale 32
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Pictures/volume_with_stretch_lines.png
-	lyxscale 30
-	scale 30
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Pictures/scattered_points.png
-	lyxscale 30
-	scale 30
+	width 40col%
 
 \end_inset
 
@@ -1802,12 +2751,85 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Original geometry (left), converted to volume with stretch lines (middle)
- and points scattered in the volume (right)
+Original geometry
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/volume_with_stretch_lines.png
+	lyxscale 30
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Converted to volume with stretch lines
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/scattered_points.png
+	lyxscale 30
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Points scattered in the volume
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -1827,26 +2849,11 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/dog_particle_fluid_surface.png
 	lyxscale 30
-	scale 30
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Pictures/dog_pfs_volume.png
-	lyxscale 30
-	scale 30
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/s4923830/Pictures/dog_pfs_point_scatter.png
-	lyxscale 30
-	scale 30
+	width 40col%
 
 \end_inset
 
@@ -1854,8 +2861,84 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Particle Fluid Surface applied on original geometry (left), conversion to
- volume (middle) and points scattered in the volume (right)
+Particle Fluid Surface applied on original geometry
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/dog_pfs_volume.png
+	lyxscale 30
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Conversion to volume
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/dog_pfs_point_scatter.png
+	lyxscale 30
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Points scattered in the volume
 \end_layout
 
 \end_inset
@@ -1902,6 +2985,10 @@ It is definitely slower than Houdini's inbuilt fractal generator i.e.
  which will optimize both the number of particles processed per frame and
  the time taken for processing.
  
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1957,10 +3044,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Master_trial/Images/Applications/Screenshot from 2017-08-01 18-19-46.png
 	lyxscale 50
-	scale 50
+	width 80col%
 
 \end_inset
 
@@ -1995,10 +3083,11 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Master_trial/Images/Applications/Screenshot from 2017-08-01 18-24-19.png
 	lyxscale 60
-	scale 60
+	width 80col%
 
 \end_inset
 
@@ -2034,10 +3123,11 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Master_trial/Images/Applications/Screenshot from 2017-08-01 18-24-32.png
 	lyxscale 65
-	scale 65
+	width 80col%
 
 \end_inset
 
@@ -2094,10 +3184,11 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/uncanny_growth.png
 	lyxscale 50
-	scale 50
+	width 50col%
 
 \end_inset
 
@@ -2105,8 +3196,47 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Growth propagation using metaball in rubbertoy: color variation with distance
- (left) and uniform color (right)
+Growth propagation using metaball in rubbertoy: Color variation with distance
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/uncanny_growth_uniform.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Growth propagation using metaball in rubbertoy: Uniform color
 \end_layout
 
 \end_inset
@@ -2125,6 +3255,125 @@ Growth propagation using metaball in rubbertoy: color variation with distance
 
 \begin_layout Subsection
 Injection
+\end_layout
+
+\begin_layout Standard
+The injection effect is similar to the uncanny growth effect with the spread
+ of blobby substance in the geometry.
+ It is called the injection effect because it appears as if the two rods
+ are injecting or releasing the blobby material.
+ The result is similar to the spreading effect shown in the wolverine adamantium
+ scene, X-Men Origins.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/intersection.png
+	lyxscale 40
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Injection objects interacting with the geometry
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/injection_start_1.png
+	lyxscale 40
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Growth starting at intersection points 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/injection_fill.png
+	lyxscale 40
+	width 40col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Completely filled main geometry
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2179,8 +3428,545 @@ Another aspect that requires special attention is the number of particles.
  shape unaffected.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 References
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Aker1997"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Aker, E., 1997. 
+\shape italic
+The Density-Density Correlation Function
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://folk.uio.no/eaker/thesis/node56.html [Accessed 10 July
+ 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Bourke1991"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Bourke, P., 1991. 
+\shape italic
+DLA - Diffusion Limited Aggregation
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://paulbourke.net/fractals/dla/ [Accessed 24 July 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Bourke2006"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Bourke, P., 2006.
+ 
+\shape italic
+Computers and Graphics. Constrained Diffusion Limited Aggregation in 3D
+\shape default
+, 30(4), 646-649.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://paulbourke.net/fractals/dla3d/ [Accessed 26 July 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Bourke2004"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Bourke, 2004. 
+\shape italic
+Diffusion Limited Aggregation (DLA) in 3D
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://paulbourke.net/fractals/dla3d/ [Accessed 4 July 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Cashmore2009"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Cashmore, M., 2009.
+ 
+\shape italic
+Applying Aggregation over 3D Surfaces
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: https://nccastaff.bournemouth.ac.uk/jmacey/MastersProjects/MSc09/in
+dex.html [Accessed 8 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Devaney1995"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Devaney, R., 1995. 
+\shape italic
+Fractal Dimension
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://math.bu.edu/DYSYS/chaos-game/node6.html [Accessed 16
+ July 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Ergen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Ergen, S., 
+\shape italic
+L Systems in computer graphics
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://www.selcukergen.net/ncca_lsystems_research/lsystems.html
+ [Accessed 21 May 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Feriani2016"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Feriani, M., 2016. 
+\shape italic
+Ice Growth Simulation
+\shape default
+.
+ Video.
+ Vimeo.
+ Available from: https://vimeo.com/201539220 [Accessed 2 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Ferrysienanda2014"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Ferrysienanda, E., 2014.
+ 
+\shape italic
+A Study of Procedural Growth Algorithms and its Implementation in Houdini
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://edwardfx.weebly.com/uploads/9/0/7/5/9075896/innovationsrepo
+rt.pdf [Accessed 15 July 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Lomas2005"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Lomas, A., 2005.
+ 
+\shape italic
+Aggregation, Complexity out of Simplicity
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://www.andylomas.com/aggregationImages.html [Accessed 18
+ July 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Prusinkiewicz1990"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Prusinkiewicz, P.
+ and Lindenmayer, A., 1990. 
+\shape italic
+The Algorithmic Beauty of Plants
+\shape default
+.
+ New York: Springer.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://algorithmicbotany.org/papers/abop/abop.pdf [Accessed
+ 11 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Rampe2016"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Rampe, J., 2016. 
+\shape italic
+Diffusion Limited Aggregation
+\shape default
+.
+ Wordpress.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: https://softologyblog.wordpress.com/2016/08/29/diffusion-limited-a
+ggregation-2/ [Accessed 7 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Rampe2017"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Rampe, J., 2017.
+ 
+\shape italic
+Pushing 3D Diffusion Limited Aggregation even further
+\shape default
+.
+ Wordpress.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Availabl from: https://softologyblog.wordpress.com/2017/05/22/pushing-3d-diffusion
+-limited-aggregation-even-further/ [Accessed 7 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Sander1986"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Sander, L., 1986.
+ 
+\shape italic
+Fractal Growth Process
+\shape default
+.
+ Nature Publishing Group, 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: https://www.nature.com/nature/journal/v322/n6082/abs/322789a0.html
+ [Accessed 1 May 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Shiffman2012"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Shiffman, D., 2012.
+ 
+\shape italic
+The Nature of Code
+\shape default
+.
+ Image.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://natureofcode.com/book/chapter-8-fractals/ [Accessed
+ 14 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Stock2003"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Stock, M., 2003. 
+\shape italic
+Snow, Chaos and Fractals
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://markjstock.org/dla3d/ [Accessed 7 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Tesla2016"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Tesla, 2016.
+\shape italic
+ dla
+\shape default
+.
+ Video.
+ Vimeo.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: https://vimeo.com/181075748 [Accessed 9 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Tesla2016ODforce"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Tesla, 2016. 
+\shape italic
+Diffusion Limited Aggregation
+\shape default
+.
+ ODForce.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: http://forums.odforce.net/topic/27179-diffusion-limited-aggregatio
+n/ [Accessed 12 July 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Witten1983"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Witten, T.
+ and Sander L., 1983.
+ 
+\shape italic
+Diffusion Limited Aggregation
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: https://pmc.polytechnique.fr/pagesperso/dg/cours/biblio/PRB%2027,%
+205686%20(1983)%20Witten,%20Sander%20%5bDiffusion-limited%20aggregation%5d.pdf
+ [Accessed 8 May 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
