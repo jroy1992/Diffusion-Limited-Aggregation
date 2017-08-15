@@ -2426,6 +2426,42 @@ A feedback system was created to make the emitters aware of the growing
  within a certain threshold.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/cluster#.png
+	lyxscale 50
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Clustering of particles because of continuous omission
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Connecting Aggregate Particles
 \end_layout
@@ -2604,14 +2640,33 @@ The reverse node in houdini to change the direction of the normals could
 \end_layout
 
 \begin_layout Standard
+In the Figure 24, all the normals of the geometry are flipped so using a
+ 
+\shape italic
+reverse
+\shape default
+ node will make sense and will work as expected correcting the orientation
+ to make them point outwards.
+\end_layout
+
+\begin_layout Standard
+As for the Figure 25, the model was exported from Maya and the possible
+ reason of normal inversion for just one half of the geometry could be the
+ mirroring of the geometry while modeling.
+ 
+\end_layout
+
+\begin_layout Standard
+Even after several attempts, a global fix for the problem couldn't be establishe
+d and is advised to keep a check on normals during modeling phase.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -2957,6 +3012,162 @@ Points scattered in the volume
 
 \begin_layout Subsubsection
 Transformation
+\end_layout
+
+\begin_layout Standard
+Transformations could be performed at node level or at geometry level.
+ For some reason simulation appears to be unresponsive to the geometry level
+ transformations.
+ When the geometry level transformations are applied the object is appropriately
+ transformed leaving the particles at their original location.
+ This will make the transformed geometry treat the particles outside of
+ it as external particles thus killing them.
+ If the same transformation is applied at the node level, the simulation
+ work without an issue.
+\end_layout
+
+\begin_layout Standard
+The possible fix tested for it was to change the 
+\shape italic
+Geometry Source
+\shape default
+ from 
+\shape italic
+First Context Geometry
+\shape default
+ (i.e.
+ solver) to 
+\shape italic
+Use Parameter Values
+\shape default
+ with 
+\shape italic
+Use Object Transform.
+ 
+\shape default
+Using the latter option will transform all the particles with the main object.
+ The simulation works but since it is not specified that particle emission
+ should happen only from walker group, both walker and aggregate points
+ will start emission.
+ To enable emission only from walkers, the 
+\shape italic
+Source Group
+\shape default
+ is set to walkers with 
+\shape italic
+Group Type
+\shape default
+ points.
+ When the simulation starts, it fails to recognize the aggregate points
+ and so the growth propagation doesn't happen.
+ Also if both the groups are considered as emitters, the simulation works
+ and the aggregation happens, but the pop network doubles up the transformation
+ and shifts the simulation outside the original object.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/transform_particles_outside.png
+	lyxscale 40
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Geometry level transformation transforming the geometry without particles
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/transform_emission.png
+	lyxscale 40
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Using Object Transform to set points back into the geometry
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/transform_outsiepop.png
+	lyxscale 40
+	width 50col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulation outside the object because of transformation doubling inside
+ pop network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Subsection
