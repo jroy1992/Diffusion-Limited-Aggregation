@@ -3,6 +3,10 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage[dvipsnames]{xcolor}
+\definecolor{cyano}{cmyk}{0.54,0,0,0.05}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -24,6 +28,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
 \spacing single
 \use_hyperref true
@@ -73,6 +78,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\listings_params "backgroundcolor={\color{white}},basicstyle={\small\ttfamily},stringstyle={\color{green}},breaklines=true,commentstyle={\itshape\color{magenta}},fillcolor={\color{white}},frame=l,framextopmargin=1em,keywordstyle={\color{blue}\bfseries},identifierstyle={\color{black}},language={C++},morecomment={[n][\keywordstyle]{{}{}}},otherkeywords={xyzdist, pcopen, pciterate, pcimport, inpointgroup, addprim, addvertex, geoself, setpointgroup, nearpoint, vector, neighbourcount, removepoint, loop, vector, fit01},prebreak={\textbackslash},sensitive=true,stepnumber=1,tabsize=4,upquote=true"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -81,6 +87,100 @@
 \end_header
 
 \begin_body
+
+\begin_layout Title
+Diffusion Limited Aggregation Inside 3D models
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Masters Project
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+Jesin Roy
+\end_layout
+
+\begin_layout Standard
+\align center
+s4923830
+\end_layout
+
+\begin_layout Standard
+\align center
+MSc Computer Animation and Visual Effects
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Master_trial/Images/BU.png
+	lyxscale 20
+	width 20col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Acknowledgment 
+\end_layout
+
+\begin_layout Standard
+jhgjfjh
+\end_layout
+
+\begin_layout Title
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
 
 \begin_layout Abstract
 The primary objective of this work is to explore the phenomenon of Diffusion
@@ -93,7 +193,7 @@ The primary objective of this work is to explore the phenomenon of Diffusion
  system will be touched upon.
 \end_layout
 
-\begin_layout Abstract
+\begin_layout Title
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -105,8 +205,8 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-Randomness plays a important role in Computer Graphics especially when it
- comes to creating natural artifacts.
+Randomness plays an important role in Computer Graphics especially when
+ it comes to creating natural artifacts.
  Adhering to the fact that nature is governed by random and bizarre order,
  for creating anything natural in graphics means to be able to resemble
  that order.
@@ -281,9 +381,21 @@ L-System has diverse applications because of its ability to create natural
  parallel giving an adaptive way to create a variety of plants with subtle
  variations enabling them to have a realistic look.
  Apart from graphics, L-systems have useful mathematical applications.
- Taking an example, using l-systems it can be shown that 2D or 3D space
- could be filled with a 1D object; called the space filling curves and Hilbert
- Curve respectively.
+ Taking an example, given by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:par:Smith2013]{Smith (2013)}
+\end_layout
+
+\end_inset
+
+using l-systems it can be shown that 2D or 3D space could be filled with
+ a 1D object; called the space filling curves and Hilbert Curve respectively.
 \end_layout
 
 \begin_layout Subsection
@@ -306,9 +418,9 @@ hyperref[par:Witten1983]{Witten and Sander (1983)}
 
 , who first experimented with DLA as a model for irreversible colloidal
  aggregation.
- The process started at the grid centre where a particle was placed.
+ The process started at the grid center where a particle was placed.
  Eventually a diffusing particle was introduced in the scene which was allowed
- to wander freely until it was within a fixed distance of the centre where
+ to wander freely until it was within a fixed distance of the center where
  it attaches to the central particle.
  After the first particle is attached, another particle is released and
  so on, all of which undergo the same process.
@@ -328,9 +440,22 @@ The initial aggregate need not necessarily be a particle; it could be an
 \end_layout
 
 \begin_layout Standard
-Many of the patterns we see in nature are the result of a host of processes
- involving an interaction between the transport and thermodynamic properties
- of matter and radiation involved.
+As 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:par:Halsey2000]{Halsey (2000)}
+\end_layout
+
+\end_inset
+
+ mentions, many of the patterns we see in nature are the result of a host
+ of processes involving an interaction between the transport and thermodynamic
+ properties of matter and radiation involved.
  Usually transport is dominated by convection but in cases where instabilities
  in the pattern generated is high, diffusion takes over like formation of
  river deltas, frost on glass, mineral deposits and many other natural phenomeno
@@ -338,8 +463,8 @@ n.
  Since the process takes place at a per particle basis with high unpredictabilit
 y of the attachment point owing to the Brownian motion, the resultant patter
  is varied and random.
- Yet the association of one particle with other to form of dendrite branches
- spread out around the initial seed portrays ….order.
+ Yet the association of one particle with other to form dendrite branches
+ spread out around the initial seed portrays a masked order.
  This order in chaos found DLA its place in computer graphics.
  
 \begin_inset ERT
@@ -362,9 +487,9 @@ hyperref[par:Cashmore2009]{Cashmore (2009)}
 \begin_inset Quotes eld
 \end_inset
 
-Catalysts need a large surface area to be most effective and often are arranges
- with a largely branched structure with many holes.
- This shape is akin to structures which are simulate by DLA
+Catalysts need a large surface area to be most effective and often are arranged
+ as a largely branched structure with many holes.
+ This shape is akin to structures which are simulated by DLA
 \begin_inset Quotes erd
 \end_inset
 
@@ -393,8 +518,8 @@ Technical Background
 \end_layout
 
 \begin_layout Standard
-Though both DLA and L systems are based on the concept of incremental growth,
- what differentiates DLA from L-systems is the versatility and quality of
+Though both DLA and L-Systems are based on the concept of incremental growth,
+ what differentiates DLA from L-Systems is the versatility and quality of
  the results DLA offers with the potential of generating dendrite forms
  as seen in a number of natural objects including lichens, crystals, neurons
  and lightening.
@@ -417,9 +542,9 @@ hyperref[par:Cashmore2009]{Cashmore (2009)}
 \end_inset
 
 .
- He develops the tool for generation of DLA on the 3D surface using it to
- create ivy like growth structure as well as applying texture map to create
- lava effect, rust propagation and displacement effect.
+ He develops the tool for generation of DLA on the 3D surface and using
+ it to create ivy like growth structure as well as applying texture map
+ to create lava effect, rust propagation and displacement effect.
  He uses the concept of SDF volume in Houdini to create a thin layer over
  the geometry to facilitate the movement of particles and to prevent them
  penetrating into or escaping from the geometry.
@@ -450,7 +575,7 @@ hyperref[par:Bourke2006]{Bourke (2006)}
  walk or the intersection with the triangle is calculated and a branch is
  added that just touches the constraint surface.
  A sphere is used as the particle emitter.
- Particles are introduces into the simulation randomly on the surface of
+ Particles are introduced into the simulation randomly on the surface of
  a sphere to get an even distribution at all locations especially the places
  with small gaps where it might be unlikely for the particles to penetrate.
  He also experiments with the multiple independent seeds for the not so
@@ -517,7 +642,20 @@ experiments with DLA in 3D without any external constraint but introduces
  If it fails to stick, it is moved a tiny distance away from that particle
  so that the diffusion distance for the next time step remains positive.
  It is observed that, lower the stickiness factor, denser the aggregate.
- For the bulk velocity, in Stock's own words, 
+ For the bulk velocity, in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Stock2003]{Stock (2003)}
+\end_layout
+
+\end_inset
+
+ own words, 
 \begin_inset Quotes eld
 \end_inset
 
@@ -603,9 +741,21 @@ for fractals in two dimensions, D ≈ 1.71 and in three dimensions, D ≈ 2.5.
 \end_layout
 
 \begin_layout Standard
-Harley(), states the observation reached through numerical simulations,
- that in high numbers of spacial dimensions d, the fractal dimension of
- the cluster D → d-1.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:par:Halsey2000]{Halsey (2000)}
+\end_layout
+
+\end_inset
+
+, states the observation reached through numerical simulations, that in
+ high numbers of spacial dimensions d, the fractal dimension of the cluster
+ D → d-1.
 \end_layout
 
 \begin_layout Standard
@@ -622,7 +772,20 @@ In addition, the fractal dimension of DLA appears to depend weakly on the
 \begin_inset Quotes erd
 \end_inset
 
- Harley()
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:par:Halsey2000]{Halsey (2000)}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -808,10 +971,8 @@ The aim of the project is to create fractal like growth inside 3D geometry
  using the principle of Diffusion Limited Aggregation.
  The implementation has been done in two parts: Text and 3D Geometry and
  Intersection.
- The first part involves working with a single 3D geometry and Text and
- Intersection.
  The first part involves working with a single geometry, filling the geometry
- with the growth.
+ using growth effect.
  The second part, however deals with how the growth will perform when two
  or more objects are in contact or are penetrating into each other.
 \end_layout
@@ -895,6 +1056,9 @@ Paint
 \shape default
  option in Houdini, the user can paint over any region of the geometry and
  the points scattered over that region will act as the initial aggregate.
+ The Paint SOP provides a very visual way with a better control to choose
+ the growth region.
+ 
 \end_layout
 
 \begin_layout Paragraph
@@ -936,27 +1100,17 @@ Volume convert
 \end_layout
 
 \begin_layout Standard
-The Paint SOP provides a very visual way with a better control to choose
- the growth region.
- 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/painted_teapot.png
 	lyxscale 30
-	width 40col%
+	width 45col%
 
 \end_inset
 
@@ -1000,7 +1154,7 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/colored_points.png
 	lyxscale 30
-	width 40col%
+	width 45col%
 
 \end_inset
 
@@ -1038,7 +1192,7 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/injection_visualization_points.png
 	lyxscale 30
-	width 40col%
+	width 45col%
 
 \end_inset
 
@@ -1074,7 +1228,7 @@ Scattering Internal Particles
 \begin_layout Standard
 After initial aggregate area is defined on the main geometry, the procedure
  for growth has to be set up.
- This is done by scattering the particles within the geometry, since the
+ This is done by scattering the particles within the geometry since the
  growth will take place inside.
  For this purpose, the geometry is converted into a volume using 
 \shape italic
@@ -1089,7 +1243,7 @@ Uniform Sampling Divs
 \shape italic
 Scatter
 \shape default
-.
+ node.
  Once the points are scatted, they need to know the color information from
  the surface.
  For Text and 3D Geometry, this is accomplished using Attribute Transfer
@@ -1165,8 +1319,8 @@ A random walker can be generated at any location inside the geometry but
  the object.
  The option was ruled out because, since the emitters are continuously emitting,
  redirecting the particles would mean packing all the emitted particles
- since the starting frame inside the geometry which will create a huge undesired
- cluster of particles.
+ since the starting frame inside the geometry which will create a huge cluster
+ of undesired particles.
 \end_layout
 
 \begin_layout Standard
@@ -1279,7 +1433,7 @@ POP Level
 \shape italic
 sopsolver
 \shape default
- used to bring the 
+ is used to bring the 
 \shape italic
 SOP Level
 \shape default
@@ -1330,7 +1484,7 @@ pcimport()
 \end_layout
 
 \begin_layout Standard
-Once the “nearpt” is found it is checked if it is in the aggregate group.
+Once the “nearpt” is found, it is checked if it is in the aggregate group.
  If yes, the walker is asked to stop, change color and is grouped under
  a separate group, 
 \begin_inset Quotes eld
@@ -1618,7 +1772,7 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Master_trial/Images/Object_Fill/SimpleDots.png
 	lyxscale 40
-	width 80col%
+	width 70col%
 
 \end_inset
 
@@ -1658,7 +1812,7 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Master_trial/Images/Wire_Fill/Simple_wire.png
 	lyxscale 40
-	width 80col%
+	width 70col%
 
 \end_inset
 
@@ -1708,7 +1862,8 @@ The lines are converted to geometry using the polywire sop which constructs
  creating them into renderable geometry.
  The tool provides the mechanism to use polywire in two ways: one is simply
  replacing the lines with polywire giving user the control to change the
- width and second is to have polywire with varying width.
+ width.
+ The second is to have polywire with varying width.
  For varying width, the concept of having thicker branches at the geometry
  center and finer branches near the boundary is applied.
  The distance of each point from the geometry boundary is measured using
@@ -1722,8 +1877,9 @@ xyzdist()
 \end_layout
 
 \begin_layout Standard
-Since this effect could also be used to grow hedge or foliage, additional
- geometries for flowers and leaves would be required.
+Since this effect could also be used to grow hedge or foliage, specific
+ points for appending additional geometries for flowers and leaves would
+ be required.
  For this purpose few points are selected as seeds for growth.
  These seeds are selected based on two conditions: their nearness to the
  geometry boundary and the number of neighbors.
@@ -1740,8 +1896,8 @@ Since this effect could also be used to grow hedge or foliage, additional
 \end_layout
 
 \begin_layout Standard
-The geometry added on seed points need to look like they are part of the
- branch i.e their alignment should be in the direction of the branch.
+Finally, geometry added on seed points need to look like they are part of
+ the branch i.e their alignment should be in the direction of the branch.
  For the appropriate geometry arrangement, direction of the normals has
  to be fixed.
  A proper connection should ideally have the normals pointing in the direction
@@ -1891,7 +2047,10 @@ Like in case of selecting main geometry, the tool provides few default shapes
  The selected shape will replace the aggregate points.
  Again, to make the effect more visually interesting, the choice of scale
  variation is provided.
- The distance of each point from the boundary is calculated and Copy Stamp
+ The distance of each point from the boundary is calculated and 
+\shape italic
+Copy Stamp
+\shape default
  is used to allot the distance to the 
 \shape italic
 Uniform Scale
@@ -1912,7 +2071,7 @@ The above cases work fine as long as finer details like geometry overlap
  half of this distance is used as scale of the geometry being copied on
  that point.
  Only half the distance is used because, if the geometry being copied has
- any protrusion, there is sufficient space to accommodate it well.
+ any protrusions, there is sufficient space to accommodate it well.
 \end_layout
 
 \begin_layout Standard
@@ -2035,7 +2194,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Object Fill: check overlap 
+Object Fill: Check overlap 
 \end_layout
 
 \end_inset
@@ -2441,7 +2600,7 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/cluster#.png
 	lyxscale 50
-	width 50col%
+	width 80col%
 
 \end_inset
 
@@ -2538,47 +2697,15 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/connecting_aggregate_broken.png
 	lyxscale 50
-	width 80col%
+	width 49.3col%
 
 \end_inset
 
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Connecting aggregate point with two neighbors
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/connecting_aggregate_multi_neighbors.png
 	lyxscale 50
-	width 80col%
+	width 52col%
 
 \end_inset
 
@@ -2586,7 +2713,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Connection with multiple neighbors 
+Connecting aggregate point with two neighbors (left) and connecting with
+ multiple neighbors
 \end_layout
 
 \end_inset
@@ -2798,77 +2926,24 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/dog_original.png
 	lyxscale 32
-	width 40col%
+	width 32col%
+	BoundingBox 0bp 0bp 1241bp 713bp
 
 \end_inset
 
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Original geometry
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/volume_with_stretch_lines.png
 	lyxscale 30
-	width 40col%
+	width 30.5col%
 
 \end_inset
 
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Converted to volume with stretch lines
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/scattered_points.png
 	lyxscale 30
-	width 40col%
+	width 30col%
 
 \end_inset
 
@@ -2876,7 +2951,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Points scattered in the volume
+(From left) Original geometry, converted to volume with stretch lines and
+ points scattered in the volume
 \end_layout
 
 \end_inset
@@ -2884,16 +2960,9 @@ Points scattered in the volume
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -2908,84 +2977,23 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/dog_particle_fluid_surface.png
 	lyxscale 30
-	width 40col%
+	width 30.5col%
 
 \end_inset
 
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Particle Fluid Surface applied on original geometry
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/dog_pfs_volume.png
 	lyxscale 30
-	width 40col%
+	width 30.5col%
 
 \end_inset
 
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Conversion to volume
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/dog_pfs_point_scatter.png
 	lyxscale 30
-	width 40col%
+	width 30col%
 
 \end_inset
 
@@ -2993,7 +3001,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Points scattered in the volume
+(From left) Particle Fluid Surface applied on original geometry, convert
+ to volume and scattered points in volume 
 \end_layout
 
 \end_inset
@@ -3196,10 +3205,6 @@ It is definitely slower than Houdini's inbuilt fractal generator i.e.
  which will optimize both the number of particles processed per frame and
  the time taken for processing.
  
-\begin_inset Newpage pagebreak
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -3399,7 +3404,15 @@ status open
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/uncanny_growth.png
 	lyxscale 50
-	width 50col%
+	width 48col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/uncanny_growth_uniform.png
+	lyxscale 50
+	width 48col%
 
 \end_inset
 
@@ -3408,46 +3421,7 @@ status open
 
 \begin_layout Plain Layout
 Growth propagation using metaball in rubbertoy: Color variation with distance
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/s4923830/Pictures/uncanny_growth_uniform.png
-	lyxscale 50
-	width 50col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Growth propagation using metaball in rubbertoy: Uniform color
+ (left), Uniform color 
 \end_layout
 
 \end_inset
@@ -3487,82 +3461,24 @@ status open
 \align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/intersection.png
-	lyxscale 40
-	width 40col%
+	lyxscale 25
+	width 36col%
 
 \end_inset
 
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Injection objects interacting with the geometry
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/injection_start_1.png
-	lyxscale 40
-	width 40col%
+	lyxscale 25
+	width 34col%
 
 \end_inset
 
 
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Growth starting at intersection points 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename /home/s4923830/Pictures/injection_fill.png
-	lyxscale 40
-	width 40col%
+	lyxscale 25
+	width 35col%
 
 \end_inset
 
@@ -3570,11 +3486,16 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Completely filled main geometry
+(From left) Injection objects interacting with the geometry, growth starting
+ at intersection points, completely filled main geometry
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -3893,6 +3814,31 @@ rt.pdf [Accessed 15 July 2017].
 \noindent
 \begin_inset CommandInset label
 LatexCommand label
+name "par:Halsey2000"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Halsey, T., 2000.
+ Diffusion Limited Aggregation-A Model for Pattern Formation.
+ Physics Today, 36-41.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: https://web.njit.edu/~kondic/capstone/2015/phys_today_DLA.pdf
+ [Accessed 8 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
 name "par:Lomas2005"
 
 \end_inset
@@ -4064,6 +4010,31 @@ Available from: http://natureofcode.com/book/chapter-8-fractals/ [Accessed
 \noindent
 \begin_inset CommandInset label
 LatexCommand label
+name "par:Smith2013"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Smith, R., 2013.
+ Fractals: What are some practical applications of L-systems?.
+ Quora.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: https://www.quora.com/Fractals-What-are-some-practical-application
+s-of-L-systems [Accessed 14 August 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
 name "par:Stock2003"
 
 \end_inset
@@ -4170,10 +4141,6 @@ Diffusion Limited Aggregation
 Available from: https://pmc.polytechnique.fr/pagesperso/dg/cours/biblio/PRB%2027,%
 205686%20(1983)%20Witten,%20Sander%20%5bDiffusion-limited%20aggregation%5d.pdf
  [Accessed 8 May 2017].
-\end_layout
-
-\begin_layout Standard
-\noindent
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -4182,6 +4149,1321 @@ Available from: https://pmc.polytechnique.fr/pagesperso/dg/cours/biblio/PRB%2027
 
 \begin_layout Section
 Appendix
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Separating walker and aggregate points
+\end_layout
+
+\end_inset
+
+
+\begin_inset listings
+lstparams "language={C++},numbers=left,basicstyle={\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/* 
+\end_layout
+
+\begin_layout Plain Layout
+
+Points which are almost red are grouped as aggregate and rest as walkers.
+ This is because while painting the geometry surface, color applied may
+ not be {1,0,0} but close to it.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+if(@Cd.r>0.8 && @Cd.g<0.2 && @Cd.b<0.2)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+		@group_aggregate = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+else
+\end_layout
+
+\begin_layout Plain Layout
+
+	@group_walker = 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Connecting the aggregate points
+\end_layout
+
+\end_inset
+
+
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+The walker points are stopped and grouped separately when they are within
+ a particular distance of the aggregate points and each stopped point is
+ connected using polyline to the point which stopped it.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Setting search_dist as a user input
+\end_layout
+
+\begin_layout Plain Layout
+
+float search_dist = ch("Distance");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Max points is 2 because one of the nearest point it will consider is itself
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+int maxpt = 2;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+v@direction; 
+\end_layout
+
+\begin_layout Plain Layout
+
+vector pos;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Searching the nearest point within search_dist 
+\end_layout
+
+\begin_layout Plain Layout
+
+int nearpt = pcopen(0, "P", @P, search_dist, maxpt);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Iterating through the nearest points 
+\end_layout
+
+\begin_layout Plain Layout
+
+while(pciterate(nearpt)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+int ptn = -1;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Importing the point number of the nearest point 
+\end_layout
+
+\begin_layout Plain Layout
+
+pcimport(nearpt, "ptn", ptn);
+\end_layout
+
+\begin_layout Plain Layout
+
+    //Checking if the point is part of "stopped" or "aggregate" group  
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(inpointgroup(0, "stopped", ptn) == 1 || inpointgroup(0, "aggregate",
+ ptn) == 1)      
+\end_layout
+
+\begin_layout Plain Layout
+
+	{         
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Adding a polyline between this point and the previously stopped/ aggergate
+ point         
+\end_layout
+
+\begin_layout Plain Layout
+
+		int prim = addprim(geoself(), "polyline");         
+\end_layout
+
+\begin_layout Plain Layout
+
+		addvertex(geoself(), prim, @ptnum);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		addvertex(geoself(), prim, ptn);                  
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Adding this point to the stopped group and removing it from the stream
+ and walker groups         
+\end_layout
+
+\begin_layout Plain Layout
+
+		setpointgroup(geoself(), "stopped", @ptnum, 1);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		setpointgroup(geoself(), "stream_seed", @ptnum, 0);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		setpointgroup(geoself(), "walker", @ptnum, 0);                  
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Stopping the point by setting velocity to 0         
+\end_layout
+
+\begin_layout Plain Layout
+
+		@v = 0;                  
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Changing color for identification         
+\end_layout
+
+\begin_layout Plain Layout
+
+		@Cd = {1,0,0};                  
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Position of the nearst point         
+\end_layout
+
+\begin_layout Plain Layout
+
+		pos = point(0, "P", ptn);                  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		/*
+\end_layout
+
+\begin_layout Plain Layout
+
+		Calculating difference between this point and the point which stopped
+ it.
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+		This difference will be set as direction for the normal so that when a
+ geometry is placed, it will be positioned correctly.
+\end_layout
+
+\begin_layout Plain Layout
+
+        */         
+\end_layout
+
+\begin_layout Plain Layout
+
+		@direction = @P - pos;
+\end_layout
+
+\begin_layout Plain Layout
+
+    } 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Controlling emitters
+\end_layout
+
+\end_inset
+
+
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/* 
+\end_layout
+
+\begin_layout Plain Layout
+
+Checking if the emitter is within the "search_dist" of the growing aggregate.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+If yes, remove the emitter from the group.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int nearpt; 
+\end_layout
+
+\begin_layout Plain Layout
+
+float @dist; 
+\end_layout
+
+\begin_layout Plain Layout
+
+vector pos; 
+\end_layout
+
+\begin_layout Plain Layout
+
+float search_dist = ch("Distance");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Find the nearest point to this point on the aggregate 
+\end_layout
+
+\begin_layout Plain Layout
+
+nearpt = nearpoint(1, @P);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Calculate the position of the nearest point 
+\end_layout
+
+\begin_layout Plain Layout
+
+pos = point(1, "P", nearpt);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Calculate the distance between this point and the nearpt 
+\end_layout
+
+\begin_layout Plain Layout
+
+@dist = distance(pos, @P);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//If this point is within the search distance, remove from walker(emitter)
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+if(@dist <= search_dist) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	@group_walker = 0;         
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Removing extra points
+\end_layout
+
+\end_inset
+
+
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/* 
+\end_layout
+
+\begin_layout Plain Layout
+
+Check for points not in stopped or aggregate group and remove them.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Select points not in stopped group 
+\end_layout
+
+\begin_layout Plain Layout
+
+if(inpointgroup(0,"stopped",@ptnum)!=1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	//Check if they are in aggregate group     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(inpointgroup(0,"aggregate",@ptnum)==1)     
+\end_layout
+
+\begin_layout Plain Layout
+
+	{         
+\end_layout
+
+\begin_layout Plain Layout
+
+		//if the points are in the aggregate group but are not connected, remove
+ them         
+\end_layout
+
+\begin_layout Plain Layout
+
+		if(neighbourcount(0, @ptnum) == 0)             
+\end_layout
+
+\begin_layout Plain Layout
+
+			removepoint(0, @ptnum);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+         
+\end_layout
+
+\begin_layout Plain Layout
+
+	//if the points are neither in stopped nor in aggregate remove them   
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+	removepoint(0,@ptnum); 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distance from object boundary
+\end_layout
+
+\end_inset
+
+
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+Calculates distance from the object boundary and uses this distance to drive
+ the polywire width for 3D Geometry and Text.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f@mydist;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Chekcing the distance of this point from the boundary of the input geometry
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+@mydist = xyzdist(1,@P);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distance from intersection points
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/* 
+\end_layout
+
+\begin_layout Plain Layout
+
+This part is used for setting the varying size or width of the  object fill
+ and wire fill for Intersection.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+As the distance from the visualization points increases, the size or width
+  should decrease.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+int near; 
+\end_layout
+
+\begin_layout Plain Layout
+
+vector near_position; 
+\end_layout
+
+\begin_layout Plain Layout
+
+float @fit_dist;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f@point_distance;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Find the nearest visualization point to this point 
+\end_layout
+
+\begin_layout Plain Layout
+
+near = nearpoint(1, @P);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Position of the "near" point 
+\end_layout
+
+\begin_layout Plain Layout
+
+near_position = point(1, "P", near);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Distance between "near" point and this point and fitting it between 0
+ and 1 
+\end_layout
+
+\begin_layout Plain Layout
+
+@fit_dist = fit01(distance(@P, near_position), 0, 1);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Calculating complement since increasing the distance should decrease the
+ width/ size 
+\end_layout
+
+\begin_layout Plain Layout
+
+@point_distance = 1 - @fit_dist;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Checking geometry overlap
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+In case of Object Fill, making sure the copied geometries do not interpenetrate.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+f@dist;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Taking search_dist as the user input
+\end_layout
+
+\begin_layout Plain Layout
+
+float search_dist = ch("Distance"); 
+\end_layout
+
+\begin_layout Plain Layout
+
+vector pos;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Find the nearest point to this point within search_dist 
+\end_layout
+
+\begin_layout Plain Layout
+
+int handle = pcopen(0, "P", @P, search_dist, 2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Iterating through the retrieved points 
+\end_layout
+
+\begin_layout Plain Layout
+
+while(pciterate(handle)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	//Importing the position     
+\end_layout
+
+\begin_layout Plain Layout
+
+	pcimport(handle, "P", pos);
+\end_layout
+
+\begin_layout Plain Layout
+
+             
+\end_layout
+
+\begin_layout Plain Layout
+
+	//If the point is not itself, calculate the distance between this point
+ and its neighbour          
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(@P != pos)     
+\end_layout
+
+\begin_layout Plain Layout
+
+	{         
+\end_layout
+
+\begin_layout Plain Layout
+
+		@dist = distance(pos, @P);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Setting seed points for additional geometry: 3D Geometry and text
+\end_layout
+
+\end_inset
+
+
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/*
+\end_layout
+
+\begin_layout Plain Layout
+
+Setting seed points for the placement of additional geometry.
+ These seed points are decided based on two criterias: 1.
+ Their nearness to the object boundary and 2.
+ The count of neighbours to check if its an end point.
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+//Checking the distance from the boundary.
+ Setting a very small distance to keep the additional geometry closer to
+ the boundary and away from central clustering.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+if(@mydist < 0.05) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	//Checking for points with only one neighbour     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(neighbourcount(0, @ptnum) == 1)    
+\end_layout
+
+\begin_layout Plain Layout
+
+	{          
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Grouping the points under a new group         
+\end_layout
+
+\begin_layout Plain Layout
+
+		@group_seeds = 1;                  
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Setting a new color for identification         
+\end_layout
+
+\begin_layout Plain Layout
+
+		@Cd = {0,1,0};     
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Setting seed points for additional geometry: Intersection
+\end_layout
+
+\end_inset
+
+
+\begin_inset listings
+lstparams "numbers=left"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+/* 
+\end_layout
+
+\begin_layout Plain Layout
+
+This part defines from where the placement of addtional geometry will start.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+The distance specified by the user is used as the minimum distance from
+  the visualization points.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+If any points lie beyond that distance,  they would be considered as seeds
+ for growth.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+*/
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+float choose_distance = ch("Distance");
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// Checking if the distance of this point from the visualization points
+ is greater than the user input distance.
+ Using @fit_dist from Algorithm 8.
+\end_layout
+
+\begin_layout Plain Layout
+
+if(@fit_dist >= choose_distance) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{     
+\end_layout
+
+\begin_layout Plain Layout
+
+	//Checking for points with only one neighbour     
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(neighbourcount(0, @ptnum) == 1)    
+\end_layout
+
+\begin_layout Plain Layout
+
+	{          
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Grouping the points under a new group         
+\end_layout
+
+\begin_layout Plain Layout
+
+		@group_seeds = 1;                  
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+		//Setting a new color for identification         
+\end_layout
+
+\begin_layout Plain Layout
+
+		@Cd = {0,1,0};     
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
