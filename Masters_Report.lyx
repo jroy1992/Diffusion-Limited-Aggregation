@@ -5,7 +5,7 @@
 \textclass article
 \begin_preamble
 \usepackage[dvipsnames]{xcolor}
-\definecolor{cyano}{cmyk}{0.54,0,0,0.05}
+\definecolor{cyano}{rgb}{0,0.498,0.21}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -78,7 +78,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "backgroundcolor={\color{white}},basicstyle={\small\ttfamily},stringstyle={\color{green}},breaklines=true,commentstyle={\itshape\color{magenta}},fillcolor={\color{white}},frame=l,framextopmargin=1em,keywordstyle={\color{blue}\bfseries},identifierstyle={\color{black}},language={C++},morecomment={[n][\keywordstyle]{{}{}}},otherkeywords={xyzdist, pcopen, pciterate, pcimport, inpointgroup, addprim, addvertex, geoself, setpointgroup, nearpoint, vector, neighbourcount, removepoint, loop, vector, fit01},prebreak={\textbackslash},sensitive=true,stepnumber=1,tabsize=4,upquote=true"
+\listings_params "backgroundcolor={\color{white}},basicstyle={\small\ttfamily},stringstyle={\color{cyano}},breaklines=true,commentstyle={\itshape\color{magenta}},fillcolor={\color{white}},frame=l,framextopmargin=1em,keywordstyle={\color{blue}\bfseries},identifierstyle={\color{black}},language={C++},morecomment={[n][\keywordstyle]{{}{}}},otherkeywords={xyzdist, pcopen, pciterate, pcimport, inpointgroup, addprim, addvertex, geoself, setpointgroup, nearpoint, vector, neighbourcount, removepoint, loop, vector, fit01},prebreak={\textbackslash},sensitive=true,stepnumber=1,tabsize=4,upquote=true"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -89,7 +89,7 @@
 \begin_body
 
 \begin_layout Title
-Diffusion Limited Aggregation Inside 3D models
+Diffusion Limited Aggregation Inside 3D Models
 \end_layout
 
 \begin_layout Standard
@@ -172,7 +172,45 @@ Acknowledgment
 \end_layout
 
 \begin_layout Standard
-jhgjfjh
+I would like to thank Jon Macey, Phil Spicer, Michail Agoulas and Yannis
+ Ioannidis for their advice and support especially through the difficult
+ states of the project.
+\end_layout
+
+\begin_layout Standard
+\noindent
+Also I would like to express my special thanks to my course mates in MSc
+ CAVE, my family and friends without whose constant support and guidance
+ this project would not have been possible.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList algorithm
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Title
@@ -461,7 +499,7 @@ hyperref[par:par:Halsey2000]{Halsey (2000)}
  river deltas, frost on glass, mineral deposits and many other natural phenomeno
 n.
  Since the process takes place at a per particle basis with high unpredictabilit
-y of the attachment point owing to the Brownian motion, the resultant patter
+y of the attachment point owing to the Brownian motion, the resultant pattern
  is varied and random.
  Yet the association of one particle with other to form dendrite branches
  spread out around the initial seed portrays a masked order.
@@ -542,9 +580,9 @@ hyperref[par:Cashmore2009]{Cashmore (2009)}
 \end_inset
 
 .
- He develops the tool for generation of DLA on the 3D surface and using
- it to create ivy like growth structure as well as applying texture map
- to create lava effect, rust propagation and displacement effect.
+ He develops a tool for generation of DLA on the 3D surface and uses it
+ to create ivy like growth structure as well as applies texture map to create
+ lava effect, rust propagation and displacement effect.
  He uses the concept of SDF volume in Houdini to create a thin layer over
  the geometry to facilitate the movement of particles and to prevent them
  penetrating into or escaping from the geometry.
@@ -642,20 +680,7 @@ experiments with DLA in 3D without any external constraint but introduces
  If it fails to stick, it is moved a tiny distance away from that particle
  so that the diffusion distance for the next time step remains positive.
  It is observed that, lower the stickiness factor, denser the aggregate.
- For the bulk velocity, in 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hyperref[par:Stock2003]{Stock (2003)}
-\end_layout
-
-\end_inset
-
- own words, 
+ For the bulk velocity, in Stock's own words, 
 \begin_inset Quotes eld
 \end_inset
 
@@ -675,6 +700,20 @@ The first task for each random-walk-accelerated step is to determine the
 \begin_inset Quotes erd
 \end_inset
 
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Stock2003]{Stock (2003)}
+\end_layout
+
+\end_inset
+
+.
  It is observed that, lower the bulk velocity lower is the density.
 \end_layout
 
@@ -989,7 +1028,7 @@ The initial seed(s) called the “aggregate” which will start the growth proce
 
 \begin_layout Itemize
 A particle called “walker” at a location inside the geometry which will
- undergo a random walk to reach the aggregate 
+ undergo random walk to reach the aggregate 
 \end_layout
 
 \begin_layout Itemize
@@ -1029,7 +1068,7 @@ normals
 
 \begin_layout Standard
 If it is Text, the user can type in a word or sentence, set the alignment,
- font, extrusion limit and the space between the characters.
+ size, extrusion limit and the space between the characters.
  The spacing between the characters is best to be kept at minimum as it
  might affect the growth propagation if the distance between characters
  is greater than a certain limit.
@@ -1044,7 +1083,7 @@ After choosing the geometry for the aggregate formation, the initial seed
  has to be decided.
  This could be any of the static point(s) of the geometry say for example,
  point “0”.
- Now for any chosen geometry the point “0” will be the initial seed but
+ Now, for any chosen geometry the point “0” will be the initial seed but
  there could be cases when the user’s desired initial seed is not point
  0 but some other point or a group of points or points at various different
  locations of the geometry.
@@ -1246,7 +1285,10 @@ Scatter
  node.
  Once the points are scatted, they need to know the color information from
  the surface.
- For Text and 3D Geometry, this is accomplished using Attribute Transfer
+ For Text and 3D Geometry, this is accomplished using 
+\shape italic
+Attribute Transfer
+\shape default
  which will transfer the color from the surface to points in the painted
  region thus defining the region from where the growth will start.
  In case of Intersection, the color is transferred from the points in the
@@ -1254,6 +1296,14 @@ Scatter
  The scattered points are then grouped separately based on color as aggregate
  and walkers.
  The user is given the control to input the number of scattered points.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Separating_walker_aggregate"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1349,7 +1399,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Emitter points scattered inside the geometry starting emission
+Emitter points scattered inside the geometry
 \end_layout
 
 \end_inset
@@ -1527,66 +1577,58 @@ Walker point collision with the growing aggregate
 
 \begin_layout Plain Layout
 \begin_inset listings
+lstparams "numbers=left"
 inline false
 status open
 
 \begin_layout Plain Layout
 
-1.
- select search distance
+select search distance
 \end_layout
 
 \begin_layout Plain Layout
 
-2.
- find two neighbor points within search distance
+find two neighbor points within search distance
 \end_layout
 
 \begin_layout Plain Layout
 
-3.
- loop through neighbor points
+loop through neighbor points
 \end_layout
 
 \begin_layout Plain Layout
 
-4.	fetch point number of neighbor points
+	fetch point number of neighbor points
 \end_layout
 
 \begin_layout Plain Layout
 
-5.	if neighbor points belongs to aggregate or stopped group
+	if neighbor points belongs to aggregate or stopped group
 \end_layout
 
 \begin_layout Plain Layout
 
-6.		stop current point
+		stop current point
 \end_layout
 
 \begin_layout Plain Layout
 
-7.		regroup from walker to stopped
+		regroup from walker to stopped
 \end_layout
 
 \begin_layout Plain Layout
 
-8.		change color
+		change color
 \end_layout
 
 \begin_layout Plain Layout
 
-9.	end if
+	end if
 \end_layout
 
 \begin_layout Plain Layout
 
-10.
- end loop
-\end_layout
-
-\begin_layout Plain Layout
-
-		
+end loop		
 \end_layout
 
 \end_inset
@@ -1607,6 +1649,13 @@ In a similar manner just as the walkers are made aware of the growing aggregate,
  A feedback system was set up for the same using File sop in Houdini.
  At the end of each frame, the points which haven’t collided are deleted
  and the stopped points are written to the file.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Removing_extras"
+
+\end_inset
+
  Meanwhile another File sop is used to read in the previous frame of aggregate
  particles.
  These are projected as a set of points in space which the 
@@ -1656,54 +1705,44 @@ Stopping emission based on new aggregate
 
 \begin_layout Plain Layout
 \begin_inset listings
+lstparams "numbers=left"
 inline false
 status open
 
 \begin_layout Plain Layout
 
-1.
- select search distance
+select search distance
 \end_layout
 
 \begin_layout Plain Layout
 
-2.
- find nearest aggregate or stopped point
+find nearest aggregate or stopped point
 \end_layout
 
 \begin_layout Plain Layout
 
-3.
- calculate nearest point position
+calculate nearest point position
 \end_layout
 
 \begin_layout Plain Layout
 
-4.
- calculate distance between emitter and resp.
+calculate distance between emitter and resp.
  nearest point
 \end_layout
 
 \begin_layout Plain Layout
 
-5.
- if distance < search distance
+if distance < search distance 	
 \end_layout
 
 \begin_layout Plain Layout
 
-6.
- 	remove from emitter group
+	remove from emitter group
 \end_layout
 
 \begin_layout Plain Layout
 
-7.
- end if
-\end_layout
-
-\begin_layout Plain Layout
-
+end if
 \end_layout
 
 \end_inset
@@ -1755,6 +1794,14 @@ addprim()
 .
  In this manner, as each walker is stopped it connects to the point which
  stopped it using a polyline giving a propagation like growth effect.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Connecting_aggregates"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1844,7 +1891,7 @@ Adding Geometry
 \begin_layout Standard
 Now that we have both points and lines, these can be used for carrying geometry
  which could then be used for the application of different shaders or textures
- or simply to add aesthetic appeal.
+ or simply colors to add aesthetic appeal.
  
 \end_layout
 
@@ -1874,6 +1921,14 @@ xyzdist()
  function.
  This distance is then used to drive the polywire width giving a linear
  decrease as the points reach the geometry boundary.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Distance_from_boundary"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1889,10 +1944,18 @@ Since this effect could also be used to grow hedge or foliage, specific
  but to actually be a seed they have to fulfill the second criteria as well
  i.e.
  the neighbor count.
- Growth can actually happen at any point in the foliage but here we account
+ Growth can actually happen at any location in the foliage but here we account
  for growth only at the end points and number of neighbors of a point is
  necessary as it will tell us whether or not it is the last point of the
  branch.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:seeds_3dandtext"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2059,19 +2122,34 @@ Uniform Scale
  The copied object near the boundary of the geometry will be smaller in
  size compared to the ones towards the center.
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Distance_from_boundary"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 The above cases work fine as long as finer details like geometry overlap
  is ignored.
  But there could be scenarios when interpenetration of geometries might
- not be a desirable effect at and for the same reason, an additional control
+ not be a desirable effect and for the same reason, an additional control
  for removing intersections is provided.
  For each point, the distance from the nearest point is calculated and the
  half of this distance is used as scale of the geometry being copied on
  that point.
  Only half the distance is used because, if the geometry being copied has
  any protrusions, there is sufficient space to accommodate it well.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:geometry_overlap"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2274,6 +2352,14 @@ Polywire is added to the polylines between the points.
  forward).
  So, further a point is from the intersection points, smaller with be the
  scale.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Distance_from_intersection"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2317,6 +2403,14 @@ Moving to adding additional geometry like flowers or leaves, unlike the
  The second criteria of having one neighbor remains the same.
  This means, all the points beyond the said distance with one neighbor will
  sprout flowers or leaves.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:seeds_intersection"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2332,7 +2426,47 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/s4923830/Pictures/injection_wines_vary.png
+	filename /home/s4923830/Pictures/intersection_uniform.png
+	lyxscale 45
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wire Fill: Uniform width
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/intersection_vary.png
 	lyxscale 45
 	width 80col%
 
@@ -2350,10 +2484,6 @@ Wire Fill: Varying width with distance from the intersection points
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -2372,44 +2502,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/s4923830/Pictures/injection_vnies_uni.png
-	lyxscale 40
-	width 80col%
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Wire Fill: Uniform width
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/s4923830/Pictures/injection_demo_addgeo.png
-	lyxscale 40
+	filename /home/s4923830/Pictures/intersection_add_geo.png
+	lyxscale 45
 	width 80col%
 
 \end_inset
@@ -2441,7 +2535,7 @@ Object Fill
 
 \begin_layout Standard
 The object fill for Intersection is similar to Text and 3D Geometry apart
- from the scaling.
+ from scaling.
  Scaling in this case applies in a similar manner as the wire fill, the
  farther the point from the intersection points, smaller the object being
  copied onto it.
@@ -2572,7 +2666,7 @@ In the first method, if the impulse emission is set to zero based on some
  While working on the method it was observed that though emitted particles
  and emission rate could be controlled from inside the POP network, the
  emitters themselves cannot be accessed from within POP network.
- This makes sense because the initially scattered particles which are acting
+ This makes sense because, the initially scattered particles which are acting
  as emitter are at the SOP Level and cannot be accessed inside POP network
  directly.
 \end_layout
@@ -2628,8 +2722,8 @@ Connecting Aggregate Particles
 \begin_layout Standard
 To establish a connection between the points, they were to be joined with
  polylines.
- This connection can be established after all the points are stopped or
- at the instance each point is being stopped.
+ This connection can be established either after all the points are stopped
+ or at the instance each point is being stopped.
  Both the methods were tested.
  The first method was to check two nearest neighbors for each point in the
  stopped group using the 
@@ -2637,16 +2731,16 @@ To establish a connection between the points, they were to be joined with
 nearpoint()
 \shape default
  function and connecting to them.
- This did join the points but the joints were broken segments with pieces
+ This did connect the points but the joints were broken segments with pieces
  scattered all over the geometry.
- Per the understanding this was because, firstly the 
+ Per the understanding this was because, firstly, the 
 \shape italic
 nearpoint()
 \shape default
  function considers one of the nearest points of a point as itself and secondly,
- for a pair of points, their second near point for those points would be
- each other meaning that each point would be connecting to itself and one
- other point thus giving the discontinuous pieces.
+ for a pair of points, the second near point for those points would be each
+ other meaning that each point would be connecting to itself and one other
+ point thus giving the discontinuous pieces.
  The neighbor point count was increased so that each point could connect
  to more than one point , but still the result was not as expected.
 \end_layout
@@ -2661,6 +2755,23 @@ pcopen()
  Once the closest point was determined, connection was set only if it was
  part of the stopped group.
  This worked well giving a continuous spread of connected points.
+ After investigation, this approach was found to be most commonly used when
+ working with points also giving better results which is another reason
+ for moving forward with this method.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:Tesla2016ODforce]{Tesla (2009)}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2683,7 +2794,7 @@ hyperref[par:Cashmore2009]{Cashmore (2009)}
  The distance between a point and the point it collided with was used as
  stamp to vary the length of the line that is being copied to ensure that
  line is of length that is equal to the distance between the points it is
- being placed.
+ being placed between.
 \end_layout
 
 \begin_layout Standard
@@ -2799,9 +2910,25 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/s4923830/Pictures/normal_inversion.png
-	lyxscale 50
-	width 50col%
+	filename /home/s4923830/Pictures/inverted_normal.png
+	lyxscale 40
+	width 31.8col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/inverted_normal_reversed.png
+	lyxscale 40
+	width 33.5col%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/s4923830/Pictures/inversed_normal_filled.png
+	lyxscale 40
+	width 29.5col%
 
 \end_inset
 
@@ -2809,9 +2936,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Normal inversion for the geometry: 
+(From left) Normal inversion for the geometry (
 \shape italic
 .bgeo
+\shape default
+): model with inverted normals, model with fixed normals and model with
+ aggregation applied
 \end_layout
 
 \end_inset
@@ -2886,7 +3016,7 @@ IsoOffset
  The reason for such appearance is not thoroughly clear but it is observed
  that this is independent of whether the geometry is imported from outside
  or is modeled in Houdini.
- Also is it not necessary that all geometries when converted to volume will
+ Also it is not necessary that all geometries when converted to volume will
  have the stretch lines.
 \end_layout
 
@@ -3001,7 +3131,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-(From left) Particle Fluid Surface applied on original geometry, convert
+(From left) Particle Fluid Surface applied on original geometry, converted
  to volume and scattered points in volume 
 \end_layout
 
@@ -3020,17 +3150,17 @@ status open
 \end_layout
 
 \begin_layout Subsubsection
-Transformation
+Geometry Level Transformation
 \end_layout
 
 \begin_layout Standard
 Transformations could be performed at node level or at geometry level.
- For some reason simulation appears to be unresponsive to the geometry level
- transformations.
- When the geometry level transformations are applied the object is appropriately
- transformed leaving the particles at their original location.
- This will make the transformed geometry treat the particles outside of
- it as external particles thus killing them.
+ For some reason, simulation appears to be unresponsive to the geometry
+ level transformations.
+ When the geometry level transformations are applied, the object is appropriatel
+y transformed leaving the particles at their original location.
+ This will make the transformed geometry treat the particles as external
+ particles thus killing them.
  If the same transformation is applied at the node level, the simulation
  work without an issue.
 \end_layout
@@ -3051,7 +3181,11 @@ Use Parameter Values
 \shape default
  with 
 \shape italic
-Use Object Transform.
+Use Object Transform
+\shape default
+ in pop source inside pop network
+\shape italic
+.
  
 \shape default
 Using the latter option will transform all the particles with the main object.
@@ -3066,12 +3200,19 @@ Source Group
 \shape italic
 Group Type
 \shape default
- points.
+ as points.
  When the simulation starts, it fails to recognize the aggregate points
  and so the growth propagation doesn't happen.
  Also if both the groups are considered as emitters, the simulation works
  and the aggregation happens, but the pop network doubles up the transformation
  and shifts the simulation outside the original object.
+\end_layout
+
+\begin_layout Standard
+The tested fix didn't work as expected and was abandoned.
+ A permanent fix for the issue is one of the future works to be looked into.
+ Till then, if any transformations are required to be performed, node level
+ transformations can be relied upon.
  
 \begin_inset Float figure
 wide false
@@ -3124,7 +3265,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Using Object Transform to set points back into the geometry
+Using Object Transform to set points back into the geometry and starting
+ emission
 \end_layout
 
 \end_inset
@@ -3161,7 +3303,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulation outside the object because of transformation doubling inside
+Simulation outside the object because of transformation being doubled inside
  pop network
 \end_layout
 
@@ -3184,7 +3326,7 @@ Efficiency
 \end_layout
 
 \begin_layout Standard
-The tool requires simulation of particles inside the 3D object.
+The tool requires simulating particles inside the 3D object.
  Time taken for the process mainly depends on the search distance.
  The search distance is directly proportional to the size of the object.
  Smaller the search distance would mean processing larger number of particles
@@ -3228,7 +3370,7 @@ The connecting lines when applied with polywire could be used for vine like
  growth effect.
  Polywire with the option of decreasing width with distance enabled has
  been used.
- This would as stated before, have finer branches near the boundary of the
+ This would, as stated before have finer branches near the boundary of the
  geometry and thicker ones towards the center.
  
 \end_layout
@@ -3375,16 +3517,16 @@ Uncanny Growth
 \begin_layout Standard
 The propagation effect of DLA can be used to show spreading of disease,
  virus or any such uncanny growth effect.
- The application is to show the growth of an organic like matter which subsequen
-tly spread and engulfs the entire geometry.
- Metaball with the copy to points option was chosen.
+ The application shows the growth of an organic like matter which spreads
+ inside the geometry and subsequently engulfs it.
+ For this effect, metaball with the copy to points option was chosen.
  The reason of choosing metaball is because it provides a simple method
  for creating organic looking surface.
  The effect has the feel of a blobby substance covering the geometry.
 \end_layout
 
 \begin_layout Standard
-The effect was tested with both uniform color and color variation with distance,
+It was tested with both uniform color and color variation with distance,
  each giving interesting results in its own stand.
  
 \end_layout
@@ -3446,9 +3588,23 @@ Injection
 The injection effect is similar to the uncanny growth effect with the spread
  of blobby substance in the geometry.
  It is called the injection effect because it appears as if the two rods
- are injecting or releasing the blobby material.
+ are injecting or releasing the blobby material into the geometry.
  The result is similar to the spreading effect shown in the wolverine adamantium
- scene, X-Men Origins.
+ scene, X-Men Origins Wolverine.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[par:X-Men Origins Wolverine2013]{X-Men Origins Wolverine (2013)}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3513,12 +3669,12 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-The tool developed allows user to input any geometry and generate points
- or connected lines inside it.
+The tool developed allows user to input any geometry and fill it with points
+ or connected lines.
  These points and lines could be manipulated or topped with geometry to
  create realistic growth effect over the chosen geometry.
  The tool is highly adaptable as the user has the choice to update the object
- the geometry is being filled with, add his/ her own flowers and leaves
+ the geometry is being filled with or add his/ her own flowers and leaves
  for the vines.
  All these objects can be used with uniform or multiple colors or used with
  different shaders to create the look based on the production purpose it
@@ -3528,8 +3684,8 @@ The tool developed allows user to input any geometry and generate points
 \end_layout
 
 \begin_layout Standard
-It is especially handy as is time and cost efficient when it comes to creating
- textures that would grow and animate over an object.
+It is especially handy as it is time and cost efficient when it comes to
+ creating textures that would grow and animate inside an object.
 \end_layout
 
 \begin_layout Standard
@@ -3553,7 +3709,7 @@ The system designed could be further advanced by having control over the
 Another aspect that requires special attention is the number of particles.
  Larger the geometry, greater will be the particles needed to completely
  fill the geometry which will slow down the process incredibly.
- In such a case, the system should have the mechanism to reduce the point
+ In such a case, the system needs to have the mechanism to reduce the point
  density through minimum distance constraint i.e.
  removing the points within a particular distance of each point and thus
  bringing down the number of points significantly but leaving the overall
@@ -3824,7 +3980,11 @@ name "par:Halsey2000"
 \begin_layout Standard
 \noindent
 Halsey, T., 2000.
- Diffusion Limited Aggregation-A Model for Pattern Formation.
+ 
+\shape italic
+Diffusion Limited Aggregation-A Model for Pattern Formation
+\shape default
+.
  Physics Today, 36-41.
  
 \end_layout
@@ -4020,7 +4180,11 @@ name "par:Smith2013"
 \begin_layout Standard
 \noindent
 Smith, R., 2013.
- Fractals: What are some practical applications of L-systems?.
+ 
+\shape italic
+Fractals: What are some practical applications of L-systems?
+\shape default
+.
  Quora.
  
 \end_layout
@@ -4141,6 +4305,36 @@ Diffusion Limited Aggregation
 Available from: https://pmc.polytechnique.fr/pagesperso/dg/cours/biblio/PRB%2027,%
 205686%20(1983)%20Witten,%20Sander%20%5bDiffusion-limited%20aggregation%5d.pdf
  [Accessed 8 May 2017].
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset CommandInset label
+LatexCommand label
+name "par:X-Men Origins Wolverine2013"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+X-Men Origins Wolverine, 2013.
+ 
+\shape italic
+LOGAN GETS INJECTED WITH ADAMANTIUM PART 1 (X MEN ORIGINS WOLVERINE)
+\shape default
+.
+ Video.
+ YouTube.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+Available from: https://www.youtube.com/watch?v=4M8LoVgPxuQ [Accessed 9 August
+ 2017].
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -4161,6 +4355,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Separating_walker_aggregate"
+
+\end_inset
+
 Separating walker and aggregate points
 \end_layout
 
@@ -4253,6 +4453,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Connecting_aggregates"
+
+\end_inset
+
 Connecting the aggregate points
 \end_layout
 
@@ -4548,6 +4754,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Controlling_emitters"
+
+\end_inset
+
 Controlling emitters
 \end_layout
 
@@ -4702,6 +4914,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Removing_extras"
+
+\end_inset
+
 Removing extra points
 \end_layout
 
@@ -4826,6 +5044,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Distance_from_boundary"
+
+\end_inset
+
 Distance from object boundary
 \end_layout
 
@@ -4845,7 +5069,7 @@ status open
 \begin_layout Plain Layout
 
 Calculates distance from the object boundary and uses this distance to drive
- the polywire width for 3D Geometry and Text.
+ the polywire width or object size for 3D Geometry and Text.
 \end_layout
 
 \begin_layout Plain Layout
@@ -4902,6 +5126,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Distance_from_intersection"
+
+\end_inset
+
 Distance from intersection points
 \end_layout
 
@@ -5047,6 +5277,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:geometry_overlap"
+
+\end_inset
+
 Checking geometry overlap
 \end_layout
 
@@ -5209,6 +5445,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:seeds_3dandtext"
+
+\end_inset
+
 Setting seed points for additional geometry: 3D Geometry and text
 \end_layout
 
@@ -5331,6 +5573,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:seeds_intersection"
+
+\end_inset
+
 Setting seed points for additional geometry: Intersection
 \end_layout
 
